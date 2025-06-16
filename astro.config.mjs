@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
 
 import sanity from "@sanity/astro";
 import react from "@astrojs/react";
@@ -14,4 +15,7 @@ export default defineConfig({
 			useCdn: false,
 		}),
 	],
+	vite: {
+	  plugins: [tailwindcss()],
+	},
 });

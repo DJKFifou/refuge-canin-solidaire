@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: loverica-bold;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./lib/assets/fonts/Loverica-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: neuzeit-grotesk;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./lib/assets/fonts/NeuzeitGro-Reg.ttf") format("truetype");
+}
+
+@theme {
+  --font-title: "loverica-bold", serif;
+  --font-sans: "neuzeit-grotesk", sans-serif;
+
+  --color-black: #000;
+  --color-white: #e8e6df;
+  --color-grey: #4e4b48;
+  --color-red: #981e32;
+  --color-gold: #c2986a;
+
+  --text-4.5xl: 2.5rem;
+  --text-5.5xl: 3.5rem;
+  --text-6.5xl: 4rem;
+  --text-7.5xl: 5rem;
+
+  --breakpoint-4xs: 20rem;
+  --breakpoint-3xs: 24rem;
+  --breakpoint-2xs: 28rem;
+  --breakpoint-xs: 32rem;
+  --breakpoint-3xl: 110rem;
+  --breakpoint-4xl: 120rem;
+  --breakpoint-5xl: 160rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
