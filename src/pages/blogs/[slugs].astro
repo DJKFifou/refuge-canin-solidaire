@@ -1,0 +1,89 @@
+---
+import { sanityClient } from "sanity:client";
+import Layout from "../../layouts/Layout.astro";
+import { getBlog, getBlogs } from "../../utilis/sanity";
+import type { Blog } from "../../utilis/sanity";
+import { urlFor } from "../../utilis/image";
+
+export async function getStaticPaths() {
+	const blogs = await getBlogs();
+
+	return blogs.map((blog) => ({
+		params: { slugs: blog.slug.current },
+		props: { blog },
+	}));
+}
+
+interface Props {
+	blog: Blog;
+}
+
+const { blog } = Astro.props;
+---
+
+<Layout title={blog.title}>
+  <article>
+    <h1>{blog.title}</h1>
+    
+    {blog.subtitle && <h2>{blog.subtitle}</h2>}
+    
+    {blog.image && (
+      <img 
+        src={urlFor(blog.image).width(800).height(400).url()} 
+        alt={blog.image.alt || blog.title}
+        style="width: 100%; height: auto; margin: 2rem 0;"
+      />
+    )}
+    
+    <div class="meta">
+      <time datetime={blog.publishedAt}>
+        {new Date(blog.publishedAt || blog._createdAt).toLocaleDateString()}
+      </time>
+    </div>
+    
+    {blog.description && (
+      <div class="description">
+        <!-- You'll need to render PortableText here -->
+        <p>Description content would go here</p>
+      </div>
+    )}
+    
+    {blog.body && (
+      <div class="content">
+        <!-- You'll need to render PortableText here -->
+        <p>Main content would go here</p>
+      </div>
+    )}
+  </article>
+</Layout>
+
+<style>
+  article {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .meta {
+    margin: 1rem 0 2rem;
+    color: #888;
+    font-size: 0.9rem;
+  }
+  
+  .description,
+  .content {
+    line-height: 1.6;
+    margin: 2rem 0;
+  }
+</style>
