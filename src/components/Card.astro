@@ -1,148 +1,38 @@
 ---
-import { formatDate } from "../utilis";
-import { urlFor } from "../utilis/image";
-import type { Blog } from "../utilis/sanity";
+import { formatDate } from "../../sanity/utilis";
+import { urlFor } from "../../sanity/utilis/image";
+import type { Blog } from "../../sanity/utilis/sanity";
 
 interface Props {
-	blog: Blog;
+	title: string;
+	data: Blog;
 }
 
-const { blog } = Astro.props;
+const { data, title } = Astro.props;
 ---
 
-<div class="card">
- {
-  blog?.image ? (
+<div class="flex flex-col border border-gray-300 rounded-md overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200">
+  {data?.image ? (
     <img
-      class="card__cover"
-      src={urlFor(blog.image).width(500).height(300).url()}
-      alt={blog.image.alt || ""}
+      class="w-full h-56 object-cover"
+      src={urlFor(data.image).width(500).height(300).url()}
+      alt={`${data.title}`}
+      loading="lazy"
     />
   ) : (
-    <div class="card__cover--none"></div>
-  )
-}
-  <div class="card__container">
-    <h3 class="card__title">
+    <div class="w-full h-56 bg-gray-300"></div>
+  )}
+
+  <div class="p-4 flex flex-col flex-grow">
+    <h3 class="text-lg font-extrabold mb-2">
       <a
-        class="card__link"
-        href={`/blogs/${blog.slug.current}`}
+        class="text-gray-900 hover:text-indigo-600 transition-colors duration-200"
+        href={`/${title}/${data.slug.current}`}
       >
-        {blog.title}
+        {data.title}
       </a>
     </h3>
-    <p class="card__excerpt">{blog.subtitle || "No description available"}</p>
-    <p class="card__date">
-      {formatDate(blog.publishedAt || blog._createdAt)}
-    </p>
+    <p class="text-gray-600 mb-4 flex-grow">{data.subtitle || "Pas de sous-titre"}</p>
+    <p class="text-gray-500 text-sm font-semibold">{formatDate(data.publishedAt || data._createdAt)}</p>
   </div>
 </div>
-
-<style>
-  .card {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-2);
-    padding: 9px;
-    position: relative;
-    border-bottom: 1px solid #ced2d9;
-
-    & .card__container {
-      margin: 0 var(--space-1) 0;
-    }
-
-    & .card__cover {
-      width: 100%;
-      height: 231px;
-      object-fit: cover;
-    }
-
-    & .card__cover--none {
-      width: 100%;
-      height: 231px;
-      background: var(--black);
-    }
-
-    & .card__title {
-      font-family: var(--font-family-sans);
-      font-weight: 800;
-      font-size: var(--font-size-7);
-      line-height: var(--line-height-6);
-      letter-spacing: -0.025em;
-      margin: var(--space-3) 0;
-    }
-
-    & .card__excerpt {
-      font-family: var(--font-family-serif);
-      font-weight: 400;
-      font-size: var(--font-size-4);
-      line-height: var(--line-height-3);
-      margin-top: 0;
-    }
-
-    & .card__date {
-      font-weight: 600;
-      font-family: var(--font-family-sans);
-      font-size: var(--font-size-1);
-      margin-top: calc(var(--space-4) + 7px);
-    }
-
-    & .card__link {
-      color: var(--black);
-      text-decoration: none;
-
-      &:hover {
-        opacity: 0.8;
-        transition: 0.2s;
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-      }
-    }
-
-    &:first-child {
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-    }
-
-    &:last-child {
-      border-bottom-left-radius: 3px;
-      border-bottom-right-radius: 3px;
-    }
-  }
-
-  @media (min-width: 575px) {
-    .card {
-      border: 1px solid #ced2d9;
-      border-bottom: none;
-
-      & .card__title {
-        margin-top: var(--space-4);
-      }
-
-      &:last-child {
-        border-bottom: 1px solid #ced2d9;
-      }
-    }
-  }
-
-  @media (min-width: 800px) {
-    .card {
-      flex-direction: row;
-
-      & .card__container {
-        margin: 0 var(--space-4) 0;
-      }
-
-      & .card__cover,
-      & .card__cover--none {
-        min-width: 366.5px;
-        max-width: 366.5px;
-        max-height: 231px;
-      }
-    }
-  }
-</style>

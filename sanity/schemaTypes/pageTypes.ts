@@ -1,4 +1,4 @@
-import { formType } from "./components/formType";
+import { formType } from "./objects/formType";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const pageTypes = defineType({
