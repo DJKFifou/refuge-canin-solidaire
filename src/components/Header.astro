@@ -2,54 +2,76 @@
     <nav class="flex flex-col lg:flex-row gap-6 w-full lg:justify-center items-center p-6 overflow-hidden lg:overflow-visible">
         <div class="flex justify-between w-full lg:w-fit">
             <a href="/">
-                <img src="/svg/Logo-Refuge-Canin-Solidaire.svg" alt="Logo Refuge Canin Solidaire">
+                <img src="/svg/logo-header.svg" alt="Logo Refuge Canin Solidaire">
             </a>
             <img src="/svg/menu-burger.svg" alt="Menu burger" id="burger" class="lg:hidden cursor-pointer">
             <img src="/svg/close.svg" alt="Close" id="close" class="hidden lg:hidden cursor-pointer">
         </div>
         <ul id="menu" class="w-full lg:w-fit translate-x-full lg:translate-x-0! flex flex-col lg:flex-row gap-6 justify-center items-center h-full px-4 lg:px-0 transition-all duration-500 whitespace-nowrap">
-            <li class="group">
-                <a href="/" class="flex gap-1.5">
+            <li class="relative group">
+                <a href="/" class="flex gap-1.5 font-bold leading-[130%] text-lightBlack">
                     Notre refuge
                     <img src="/svg/arrow-down.svg" alt="Flèche vers le bas" class="transition-transform duration-300 group-hover:rotate-180">
                 </a>
+                <ul class="hidden absolute top-full group-hover:flex flex-col whitespace-nowrap left-1/2 -translate-x-1/2 p-1.5 menu-child-box-shadow bg-white rounded-lg">
+                    <li class="hover:font-semibold rounded-lg hover:bg-blue-100">
+                        <a href="/" class="px-4 py-3 block text-sm leading-[20px]">Actualités</a>
+                    </li>
+                    <li class="hover:font-semibold rounded-lg hover:bg-blue-100">
+                        <a href="/" class="px-4 py-3 block text-sm leading-[20px]">Nos guides d'adoption</a>
+                    </li>
+                </ul>
             </li>
             <li class="relative group">
-                <a href="/" class="flex gap-1.5 items-center">
+                <a href="/" class="flex gap-1.5 items-center font-bold leading-[130%] text-lightBlack">
                   S'informer
                   <img src="/svg/arrow-down.svg" alt="Flèche vers le bas" class="transition-transform duration-300 group-hover:rotate-180">
                 </a>
                 <ul class="hidden absolute top-full group-hover:flex flex-col whitespace-nowrap left-1/2 -translate-x-1/2 p-1.5 menu-child-box-shadow bg-white rounded-lg">
-                    <li class="px-4 py-3 hover:font-semibold rounded-lg hover:bg-blue-100">
-                        <a href="/">Qui sommes-nous ?</a>
+                    <li class="hover:font-semibold rounded-lg hover:bg-blue-100">
+                        <a href="/" class="px-4 py-3 block text-sm leading-[20px]">Qui sommes-nous ?</a>
                     </li>
-                    <li class="px-4 py-3 hover:font-semibold rounded-lg hover:bg-blue-100">
-                        <a href="/">Nos partenaires</a>
+                    <li class="hover:font-semibold rounded-lg hover:bg-blue-100">
+                        <a href="/" class="px-4 py-3 block text-sm leading-[20px]">Nos partenaires</a>
                     </li>
-                    <li class="px-4 py-3 hover:font-semibold rounded-lg hover:bg-blue-100">
-                        <a href="/">FAQ</a>
+                    <li class="hover:font-semibold rounded-lg hover:bg-blue-100">
+                        <a href="/" class="px-4 py-3 block text-sm leading-[20px]">FAQ</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="/" class="">Adopter</a>
+                <a href="/" class="font-bold leading-[130%] text-lightBlack">Adopter</a>
             </li>
-            <li class="group">
-                <a href="/" class="flex gap-1.5">
+            <li class="relative group">
+                <a href="/" class="flex gap-1.5 font-bold leading-[130%] text-lightBlack">
                     Nous soutenir
                     <img src="/svg/arrow-down.svg" alt="Flèche vers le bas" class="transition-transform duration-300 group-hover:rotate-180">
                 </a>
+                <ul class="hidden absolute top-full group-hover:flex flex-col whitespace-nowrap left-1/2 -translate-x-1/2 p-1.5 menu-child-box-shadow bg-white rounded-lg">
+                    <li class="hover:font-semibold rounded-lg hover:bg-blue-100">
+                        <a href="/" class="px-4 py-3 block text-sm leading-[20px]">Faire un don</a>
+                    </li>
+                    <li class="hover:font-semibold rounded-lg hover:bg-blue-100">
+                        <a href="/" class="px-4 py-3 block text-sm leading-[20px]">Devenir bénévole</a>
+                    </li>
+                    <li class="hover:font-semibold rounded-lg hover:bg-blue-100">
+                        <a href="/" class="px-4 py-3 block text-sm leading-[20px]">Parrainer un chien</a>
+                    </li>
+                    <li class="hover:font-semibold rounded-lg hover:bg-blue-100">
+                        <a href="/" class="px-4 py-3 block text-sm leading-[20px]">Entreprises & mécènes</a>
+                    </li>
+                </ul>
             </li>
             <li>
-                <a href="/" class="">Déclarer</a>
+                <a href="/" class="font-bold leading-[130%] text-lightBlack">Déclarer</a>
             </li>
             <li>
-                <a href="/" class="">Boutique</a>
+                <a href="/" class="font-bold leading-[130%] text-lightBlack">Boutique</a>
             </li>
         </ul>
-        <a href="/contact" class="hidden lg:flex gap-2 px-5 py-3 bg-blue-300 text-white rounded-lg whitespace-nowrap">
+        <a href="/contact" class="hidden lg:flex items-center gap-2 px-5 py-3 bg-blue text-darkBlue font-bold leading-[130%] rounded-lg whitespace-nowrap">
             Prendre contact
-            <img src="/svg/arrow-right.svg" alt="Flèche vers la droite">
+            <img src="/svg/arrow-right-dark.svg" alt="Flèche vers la droite">
         </a>
     </nav>
 </header>
