@@ -16,7 +16,7 @@ const { title = "Refuge Canin Solidaire" } = Astro.props;
 		<script type="module" src="/src/scripts/main.js"></script>
 	</head>
 	<body class="min-h-screen flex flex-col">
-		<Header />
+		<Header client:load />
 		<main>
 			<slot />
 		</main>

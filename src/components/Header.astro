@@ -1,9 +1,74 @@
-<header>
-    <nav class="w-full h-10 bg-red">
-        <ul class="flex gap-6 justify-center items-center h-full px-4">
-            <li><a href="/" class="text-white">Home</a></li>
-            <li><a href="/about" class="text-white">About</a></li>
-            <li><a href="/contact" class="text-white">Contact</a></li>
+<header class="container mx-auto">
+    <nav class="flex flex-col lg:flex-row gap-6 w-full lg:justify-center items-center p-6 overflow-hidden lg:overflow-visible">
+        <div class="flex justify-between w-full lg:w-fit">
+            <a href="/">
+                <img src="svg/Logo-Refuge-Canin-Solidaire.svg" alt="Logo Refuge Canin Solidaire">
+            </a>
+            <img src="/svg/menu-burger.svg" alt="Menu burger" id="burger" class="lg:hidden cursor-pointer">
+            <img src="/svg/close.svg" alt="Close" id="close" class="hidden lg:hidden cursor-pointer">
+        </div>
+        <ul id="menu" class="w-full lg:w-fit translate-x-full lg:translate-x-0! flex flex-col lg:flex-row gap-6 justify-center items-center h-full px-4 lg:px-0 transition-all duration-500 whitespace-nowrap">
+            <li class="group">
+                <a href="/" class="flex gap-1.5">
+                    Notre refuge
+                    <img src="/svg/arrow-down.svg" alt="Flèche vers le bas" class="transition-transform duration-300 group-hover:rotate-180">
+                </a>
+            </li>
+            <li class="relative group">
+                <a href="/" class="flex gap-1.5 items-center">
+                  S'informer
+                  <img src="/svg/arrow-down.svg" alt="Flèche vers le bas" class="transition-transform duration-300 group-hover:rotate-180">
+                </a>
+                <ul class="hidden absolute top-full group-hover:flex flex-col whitespace-nowrap left-1/2 -translate-x-1/2 p-1.5 menu-child-box-shadow bg-white rounded-lg">
+                    <li class="px-4 py-3 hover:font-semibold rounded-lg hover:bg-blue-100">
+                        <a href="">Qui sommes-nous ?</a>
+                    </li>
+                    <li class="px-4 py-3 hover:font-semibold rounded-lg hover:bg-blue-100">
+                        <a href="">Nos partenaires</a>
+                    </li>
+                    <li class="px-4 py-3 hover:font-semibold rounded-lg hover:bg-blue-100">
+                        <a href="">FAQ</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/" class="">Adopter</a>
+            </li>
+            <li class="group">
+                <a href="/" class="flex gap-1.5">
+                    Nous soutenir
+                    <img src="/svg/arrow-down.svg" alt="Flèche vers le bas" class="transition-transform duration-300 group-hover:rotate-180">
+                </a>
+            </li>
+            <li>
+                <a href="/" class="">Déclarer</a>
+            </li>
+            <li>
+                <a href="/" class="">Boutique</a>
+            </li>
         </ul>
+        <a href="/contact" class="hidden lg:flex gap-2 px-5 py-3 bg-blue-300 text-white rounded-lg whitespace-nowrap">
+            Prendre contact
+            <img src="/svg/arrow-right.svg" alt="Flèche vers la droite">
+        </a>
     </nav>
 </header>
+
+<script type="module">
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    const close = document.getElementById('close');
+  
+    burger?.addEventListener('click', () => {
+        console.log('Burger clicked');
+      menu?.classList.add('translate-x-0!');
+      burger?.classList.add('hidden');
+      close?.classList.remove('hidden');
+    });
+    close?.addEventListener('click', () => {
+        console.log('Close clicked');
+      menu?.classList.remove('translate-x-0!');
+        close?.classList.add('hidden');
+        burger?.classList.remove('hidden');
+    });
+  </script>
