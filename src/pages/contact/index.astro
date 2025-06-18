@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactAdopter from '@/components/contact-adopter.astro';
+import ContactParrainer from '@/components/contact-parrainer.astro';
+import ContactBenevole from '@/components/Contact-benevole.astro';
+import ContactPartenaire from '@/components/Contact-partenaire.astro';
+---
+
+<Layout>
+  <div>
+    <h1>Contactez-nous</h1>
+    <div class="flex gap-4">
+      <button class="border" data-target="adopter">Show comp 1</button>
+      <button class="border" data-target="parrainer">Show comp 2</button>
+      <button class="border" data-target="benevole">Show comp 3</button>
+      <button class="border" data-target="partenaire">Show comp 4</button>
+    </div>
+
+    <div id="adopter" hidden>
+      <ContactAdopter />
+    </div>
+    <div id="parrainer" hidden>
+      <ContactParrainer />
+    </div>
+    <div id="benevole" hidden>
+      <ContactBenevole />
+    </div>
+    <div id="partenaire" hidden>
+      <ContactPartenaire />
+    </div>
+  </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('button[data-target]');
+        const components = document.querySelectorAll('#adopter, #parrainer, #benevole, #partenaire');
+
+        buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = (button as HTMLElement).dataset.target;
+
+            components.forEach(comp => {
+            (comp as HTMLElement).hidden = (comp as HTMLElement).id !== targetId;
+            });
+        });
+        });
+    });
+    </script>
+</Layout>
