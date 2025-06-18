@@ -1,29 +1,76 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: loverica-bold;
+  font-family: barlow;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 300;
   font-display: swap;
-  src: url("./lib/assets/fonts/Loverica-Bold.otf") format("opentype");
+  src: url("./fonts/Barlow-Light.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: neuzeit-grotesk;
+  font-family: barlow;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("./lib/assets/fonts/NeuzeitGro-Reg.ttf") format("truetype");
+  src: url("./fonts/Barlow-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: barlow;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./fonts/Barlow-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: barlow;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./fonts/Barlow-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: barlow;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./fonts/Barlow-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: homemade;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/HomemadeApple-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: space-grotesk;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./fonts/SpaceGrotesk-VariableFont_wght.ttf ") format("truetype");
 }
 
 @theme {
-  --font-title: "loverica-bold", serif;
-  --font-sans: "neuzeit-grotesk", sans-serif;
+  --font-title: "barlow", serif;
+  --font-variant: "homemade", serif;
+  --font-sans: "space-grotesk", sans-serif;
 
   --color-black: #000;
-  --color-grey: #4e4b48;
-  --color-red: #981e32;
-  --color-gold: #c2986a;
+  --color-white: #fff;
+  --color-lightBlack: #252525;
+  --color-grey: #625f5f;
+  --color-lightGrey: #ababab;
+  --color-blue: #92c3de;
+  --color-green: #f2f3d3;
+  --color-orange: #fe5400;
+  --color-brown: #6d3c21;
+  --color-gold: #cdb596;
 
   --text-4.5xl: 2.5rem;
   --text-5.5xl: 3.5rem;
