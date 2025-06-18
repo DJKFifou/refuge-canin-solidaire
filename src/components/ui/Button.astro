@@ -1,0 +1,16 @@
+---
+interface Props {
+	src: string;
+	text: string;
+	class?: string;
+}
+
+const { src, text, class: customClass } = Astro.props;
+---
+
+<a
+  class={`rounded-xl border bg-white border-gray-400 p-4 ${customClass ?? ''}`}
+  href={src}
+>
+  {text}
+</a>

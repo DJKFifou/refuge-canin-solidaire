@@ -1,0 +1,68 @@
+---
+import Button from "./ui/Button.astro";
+
+interface DogImage {
+	src: string;
+	top: string;
+	left: string;
+	rotate: string;
+	scale: number;
+}
+
+interface Props {
+	img: DogImage[];
+}
+
+const { img } = Astro.props;
+---
+
+<div class="relative h-screen flex justify-center items-center overflow-hidden" id="box">
+
+  <div class="absolute inset-0 z-0 pointer-events-none">
+    {img.map((image, idx) => (
+      <img
+        src={image.src}
+        alt={`Dog image ${idx + 1}`}
+        class="dog-image absolute w-40 transition-all duration-300"
+        style={`top: ${image.top}; left: ${image.left}; transform: rotate(${image.rotate}) scale(${image.scale}); clip-path: inset(100% 0 0 0);`}
+        data-index={idx}
+      />
+    ))}
+  </div>
+
+  <div class="relative z-10 text-center space-y-9 max-w-xl">
+    <h1 class="text-4xl font-bold">caca</h1>
+    <p>
+      Un refuge, des rencontres, des histoires. Adopter un chien, c'est lui donner une seconde chance, et vivre la vôtre différemment.
+    </p>
+    <Button src="/dogs" text="Contactez-nous" />
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  function initAnimations() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const dogImages = document.querySelectorAll(".dog-image");
+
+
+    dogImages.forEach((img, idx) => {
+      gsap.to(img, {
+        clipPath: "inset(0% 0 0 0)",
+        duration: 0.7,
+        delay: idx * 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#box",
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initAnimations);
+</script>
