@@ -1,14 +1,15 @@
-// import { formType } from "./components/formType";
-import { heroType } from "./components/heroType";
-import { imageGalleryType } from "./components/ImageGallery";
-import { textWithIllustrationType } from "./components/TextWithImage";
-import { videoType } from "./components/videoType";
+import { heroType } from "./objects/heroType";
+import { imageGalleryType } from "./objects/ImageGallery";
+import { textWithIllustrationType } from "./objects/TextWithImage";
+import { videoType } from "./objects/videoType";
 
 import { pageTypes } from "./pageTypes";
 import { blogTypes } from "./blogTypes";
+import { dogTypes } from "./dogTypes";
 
 export const schemaTypes = [
 	blogTypes,
+	dogTypes,
 	pageTypes,
 	heroType,
 	textWithIllustrationType,

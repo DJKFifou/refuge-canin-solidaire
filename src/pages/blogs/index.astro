@@ -1,15 +1,16 @@
 ---
-import { sanityClient } from "sanity:client";
-import Card from "../../components/Card.astro";
-import Welcome from "../../components/Welcome.astro";
-import Layout from "../../layouts/Layout.astro";
-import { getBlog, getBlogs } from "../../utilis/sanity";
+import Card from "@/components/Card.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getBlogs } from "../../../sanity/utilis/sanity";
 
 const posts = await getBlogs();
 ---
 
-<Layout title="Welcome to Astro.">
-  <section>
-    {posts.length ? posts.map((post) => <Card blog={post} />) : <Welcome />}
+<Layout title="Blogs">
+  <section class="grid gap-6grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 py-8 max-w-7xl mx-auto
+  ">
+    {posts.length ? posts.map((post) => 
+    <Card title="blogs" data={post} />)
+     : <h1 >aucuns blogs disponible...</h1>}
   </section>
 </Layout>

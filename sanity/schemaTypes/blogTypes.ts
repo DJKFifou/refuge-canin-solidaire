@@ -43,12 +43,5 @@ export const blogTypes = defineType({
 			initialValue: () => new Date().toISOString(),
 			validation: (rule) => rule.required(),
 		}),
-
-		defineField({
-			name: "body",
-			title: "Contenu",
-			type: "array",
-			of: [{ type: "block" }],
-		}),
 	],
 });
