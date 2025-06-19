@@ -5,12 +5,6 @@ import { getBlogs } from "../../../sanity/utilis/sanity";
 import Hero from "@/components/Hero.astro";
 
 const posts = await getBlogs();
-
-const links = [
-  { type: 'secondary', href: 'tel:0600000000', label: '0600000000', icon:'phone' },
-  { type: 'secondary', href: 'mailto:refugecaninsolidaire@gmail.com', label: 'refugecaninsolidaire@gmail.com', icon:'mail' },
-  { type: 'secondary', href: '', label: '15 avenue Lafarge, Gironde, 33000', icon:'ping' }
-];
 ---
 
 <Layout title="Blogs">
