@@ -4,10 +4,10 @@ import { Resend } from "resend";
 
 const resend = new Resend("re_7WEPTLXX_KBjY4nFjTYSwqy2snorHMshs");
 
-console.log("resend : ", resend);
-
 export const POST: APIRoute = async ({ request }) => {
   const formData = await request.formData();
+  const formType = formData.get("form-type")?.toString();
+
   const email = formData.get("email")?.toString() || "";
   const phone = formData.get("phone")?.toString();
   const name = formData.get("name")?.toString();
@@ -25,33 +25,12 @@ export const POST: APIRoute = async ({ request }) => {
   const veterinaryCosts = formData.get("veterinary-costs")?.toString();
   const adoptionReason = formData.get("adoption-reason")?.toString();
 
-  const supportType = formData.get("support-type")?.toString();
-  const particularSupport = formData.get("particular-support")?.toString();
-
   const benevolatSpendtime = formData.get("benevolat-spendtime")?.toString();
   const intervention = formData.getAll("intervention") as string[];
   const domain = formData.getAll("domain") as string[];
   const benevolatReason = formData.get("benevolat-reason")?.toString();
 
   const collaboration = formData.get("collaboration")?.toString();
-
-  const htmlContent = `
-  <div style="display: flex; flex-direction: column; gap: 1rem;">
-    <h1>Nouvelle soumission de formulaire</h1>
-    <p><strong>Email :</strong> ${email}</p>
-    <p><strong>Téléphone :</strong> ${phone}</p>
-    <p><strong>Nom Prénom :</strong> ${name}</p>
-  </div>
-  `;
-
-  const htmlContentForClient = `
-  <div style="display: flex; flex-direction: column; gap: 1rem;">
-    <h1>Récap du formulaire</h1>
-    <p><strong>Email :</strong> ${email}</p>
-    <p><strong>Téléphone :</strong> ${phone}</p>
-    <p><strong>Nom Prénom :</strong> ${name}</p>
-  </div>
-  `;
 
   const htmlContentContactAdoption = `
   <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
@@ -93,27 +72,6 @@ export const POST: APIRoute = async ({ request }) => {
         <li>Conscient(e) des besoins d’un chien : ✔️</li>
         <li>Adhésion aux valeurs du refuge : ✔️</li>
       </ul>
-    </div>
-  </div>
-`;
-
-  const htmlContentContactParrainage = `
-  <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
-    <h2 style="color: #333;">📝 Nouvelle demande de parrainage</h2>
-
-    <div style="margin-bottom: 1rem;">
-      <h3 style="margin-bottom: 0.5rem;">Informations générales</h3>
-      <p><strong>📧 Email :</strong> ${email}</p>
-      <p><strong>📞 Téléphone :</strong> ${phone}</p>
-      <p><strong>👤 Nom Prénom :</strong> ${name}</p>
-    </div>
-
-    <hr style="margin: 20px 0;">
-
-    <div style="margin-bottom: 1rem;">
-      <h3 style="margin-bottom: 0.5rem;">🐶 Type de parrainage souhaité</h3>
-      <p><strong>🎯 Type de parrainage :</strong> ${supportType}</p>
-      <p><strong>❓ Parrainage d’un chien en particulier :</strong> ${particularSupport}</p>
     </div>
   </div>
 `;
@@ -167,23 +125,58 @@ export const POST: APIRoute = async ({ request }) => {
     </div>
   `;
 
-  const { error } = await resend.emails.send({
+  let htmlContent = "";
+  let subject = "";
+  const to = ["lust.maxime@outlook.fr"];
+
+  switch (formType) {
+    case "adoption":
+      htmlContent = htmlContentContactAdoption;
+      subject = "📩 Nouvelle demande d'adoption";
+      break;
+    case "benevolat":
+      htmlContent = htmlContentBenevolat;
+      subject = "🙋 Nouvelle demande de bénévolat";
+      break;
+    case "partenaire":
+      htmlContent = htmlContentPartenaire;
+      subject = "🤝 Nouvelle demande de partenariat";
+      break;
+    default:
+      return new Response("Type de formulaire inconnu", { status: 400 });
+  }
+
+  await resend.emails.send({
     from: "refuge-canin-solidaire@resend.dev",
-    to: ["lust.maxime@outlook.fr"],
-    subject: "Newsletter du Refuge Canin Solidaire",
-    html: htmlContentContactAdoption,
+    to,
+    subject,
+    html: htmlContent,
   });
 
   await resend.emails.send({
     from: "refuge-canin-solidaire@resend.dev",
     to: [email],
-    subject: "Mail envoyé au Refuge Canin Solidaire",
-    html: htmlContentContactAdoption,
+    subject: "Résumé de votre mail envoyé au Refuge Canin Solidaire",
+    html: htmlContent,
   });
 
-  if (error) {
-    return new Response(JSON.stringify(error));
-  }
+  // const { error } = await resend.emails.send({
+  //   from: "refuge-canin-solidaire@resend.dev",
+  //   to: ["lust.maxime@outlook.fr"],
+  //   subject: "Newsletter du Refuge Canin Solidaire",
+  //   html: htmlContentContactAdoption,
+  // });
+
+  // await resend.emails.send({
+  //   from: "refuge-canin-solidaire@resend.dev",
+  //   to: [email],
+  //   subject: "Mail envoyé au Refuge Canin Solidaire",
+  //   html: htmlContentContactAdoption,
+  // });
+
+  // if (error) {
+  //   return new Response(JSON.stringify(error));
+  // }
 
   return new Response("Email sent successfully!");
 };

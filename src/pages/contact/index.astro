@@ -1,60 +1,93 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ContactAdopter from '@/components/contact-adopter.astro';
-import ContactParrainer from '@/components/contact-parrainer.astro';
 import ContactBenevole from '@/components/Contact-benevole.astro';
 import ContactPartenaire from '@/components/Contact-partenaire.astro';
 ---
 
 <Layout>
-  <div>
+  <div class="container mx-auto">
     <h1>Contactez-nous</h1>
-    <div class="flex gap-4">
-      <button class="border" data-target="adopter">Show comp 1</button>
-      <button class="border" data-target="parrainer">Show comp 2</button>
-      <button class="border" data-target="benevole">Show comp 3</button>
-      <button class="border" data-target="partenaire">Show comp 4</button>
-    </div>
-    <p>Tous les champs du formulaire sont obligatoires</p>
-    <div id="adopter">
-      <ContactAdopter />
-    </div>
-    <div id="parrainer" hidden>
-      <ContactParrainer />
-    </div>
-    <div id="benevole" hidden>
-      <ContactBenevole />
-    </div>
-    <div id="partenaire" hidden>
-      <ContactPartenaire />
+    <div class="max-w-5xl border border-thirdLightGrey rounded-lg mx-auto my-25 p-12 flex flex-col gap-12">
+      <div class="flex flex-col gap-6">
+        <h4 class="text-xl font-bold leading-[130%] text-darkBlue">Quel est l’objet de votre prise de contact ?</h4>
+        <div class="flex flex-col xs:flex-row gap-6">
+          <button class="flex xs:flex-col items-center justify-center gap-4 border flex-1 rounded-lg bg-white border-thirdLightGrey contact-card-box-shadow p-6 xs:p-8 cursor-pointer text-darkBlue text-sm font-bold leading-[130%]" data-target="adopter">
+            <div class="flex items-center justify-center bg-green rounded-full p-3 xs:p-4 w-fit">
+              <img src="/svg/contact-heart.svg" alt="">
+            </div>
+            Adopter un chien
+          </button>
+          <button class="flex xs:flex-col items-center justify-center gap-4 border flex-1 rounded-lg bg-white border-thirdLightGrey contact-card-box-shadow p-6 xs:p-8 cursor-pointer text-darkBlue text-sm font-bold leading-[130%]" data-target="benevole">
+            <div class="flex items-center justify-center bg-green rounded-full p-3 xs:p-4 w-fit">
+              <img src="/svg/contact-user.svg" alt="">
+            </div>
+            Devenir bénévole
+          </button>
+          <button class="flex xs:flex-col items-center justify-center gap-4 border flex-1 rounded-lg bg-white border-thirdLightGrey contact-card-box-shadow p-6 xs:p-8 cursor-pointer text-darkBlue text-sm font-bold leading-[130%]" data-target="partenaire">
+            <div class="flex items-center justify-center bg-green rounded-full p-3 xs:p-4 w-fit">
+              <img src="/svg/contact-rocket.svg" alt="">
+            </div>
+            Devenir partenaire
+          </button>
+        </div>
+      </div>
+      <div class="flex flex-col gap-8">
+        <div class="flex gap-2 px-4 py-2 bg-lightBlue text-darkBlue rounded-lg w-fit text-sm font-bold leading-[130%]">
+          <img src="/svg/information.svg" alt="Icône d'information" class="w-4">
+          <p>Tous les champs du formulaire sont obligatoires</p>
+        </div>
+        <div id="adopter">
+          <ContactAdopter />
+        </div>
+        <div id="benevole" hidden>
+          <ContactBenevole />
+        </div>
+        <div id="partenaire" hidden>
+          <ContactPartenaire />
+        </div>
+      </div>
     </div>
   </div>
 
   <div id="success-popup" class="fixed inset-0 bg-black/50 items-center justify-center z-50 hidden">
-    <div class="relative flex flex-col items-center justify-center gap-4 bg-white p-6 rounded-lg shadow-lg text-center max-w-md">
-      <img src="/svg/close.svg" alt="Fermeture de la pop-up" class="absolute top-4 right-4 h-6 w-6 cursor-pointer" id="close-popup">
+    <div class="relative flex flex-col items-center justify-center gap-4 bg-white p-6 rounded-lg shadow-lg text-center max-w-md text-darkBlue">
+      <img src="/svg/close-pop-up.svg" alt="Fermeture de la pop-up" class="absolute top-4 right-4 h-6 w-6 cursor-pointer" id="close-popup">
       <div class="flex items-center justify-center bg-green rounded-full p-6">
         <img src="/svg/check-circle.svg" alt="Icône de check" class="h-9 w-9">
       </div>
       <h2 class="text-4xl font-bold leading-[130%] -tracking[0.72px]">Merci pour votre demande de contact</h2>
       <p class="font-bold leading-[130%]">Votre demande a bien été envoyée à l’équipe du Refuge Canin Solidaire. Nous vous répondrons dans les meilleurs délais.</p>
-      <a href="/" class="w-full py-3 px-5 bg-blue text-darkBlue rounded-lg font-bold leading-[130%] cursor-pointer mt-1.5">Retour à l'accueil</a>
+      <a href="/" class="w-full py-3 px-5 bg-blue rounded-lg font-bold leading-[130%] cursor-pointer mt-1.5">Retour à l'accueil</a>
     </div>
   </div>
 
-    <script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
         const buttons = document.querySelectorAll('button[data-target]');
-        const components = document.querySelectorAll('#adopter, #parrainer, #benevole, #partenaire');
+        const components = document.querySelectorAll('#adopter, #benevole, #partenaire');
+
+        buttons.forEach(btn => btn.classList.remove('bg-lightBlue!'));
+        buttons[0].classList.add('bg-lightBlue!', '*:bg-white!');
+
+        const firstTargetId = (buttons[0] as HTMLElement).dataset.target;
+        components.forEach(comp => {
+          (comp as HTMLElement).hidden = (comp as HTMLElement).id !== firstTargetId;
+        });
 
         buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const targetId = (button as HTMLElement).dataset.target;
+          button.addEventListener('click', () => {
+              const targetId = (button as HTMLElement).dataset.target;
 
-            components.forEach(comp => {
-            (comp as HTMLElement).hidden = (comp as HTMLElement).id !== targetId;
-            });
-        });
+              components.forEach(comp => {
+              (comp as HTMLElement).hidden = (comp as HTMLElement).id !== targetId;
+              });
+
+              buttons.forEach(btn => {
+                btn.classList.remove('bg-lightBlue!', '*:bg-white!');
+              });
+              button.classList.add('bg-lightBlue!', '*:bg-white!');
+          });
         });
     });
 
@@ -84,5 +117,5 @@ import ContactPartenaire from '@/components/Contact-partenaire.astro';
     closeBtn?.addEventListener('click', () => {
       popup?.classList.add('hidden');
     });
-    </script>
+  </script>
 </Layout>

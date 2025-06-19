@@ -1,90 +1,103 @@
-<form id="benevolat-form" class="flex flex-col gap-4">
-    <h4>Informations générales</h4>
-	<div class="flex flex-col gap-2">
-		<label for="name">Nom Prénom</label>
-		<input name="name" type="text" class="border" placeholder="Dupont Olivia" required>
-	</div>
-	<div class="flex flex-col gap-2">
-		<label for="email">Email</label>
-		<input name="email" type="email" class="border" placeholder="olviadupont@gmail.com" required>
-	</div>
-	<div class="flex flex-col gap-2">
-		<label for="phone">Numéro de téléphone</label>
-		<input name="phone" type="tel" class="border" placeholder="0734567854" required>
-	</div>
+<form id="benevolat-form" class="flex flex-col gap-8">
+    <input type="hidden" name="form-type" value="benevolat" />
+    <div class="flex flex-col gap-6 p-6 border border-thirdLightGrey rounded-lg">
+        <h4 class="text-xl font-bold leading-[130%] text-darkBlue">Informations générales</h4>
+        <div class="flex flex-col gap-1.5">
+            <label for="name" class="text-sm text-grey font-bold leading-[130%]">Nom Prénom</label>
+            <input name="name" type="text" class="border border-thirdLightGrey rounded-lg px-3.5 py-2.5 leading-[130%]" placeholder="Dupont Olivia" required>
+        </div>
+        <div class="flex flex-col gap-1.5">
+            <label for="email" class="text-sm text-grey font-bold leading-[130%]">Email</label>
+            <input name="email" type="email" class="border border-thirdLightGrey rounded-lg px-3.5 py-2.5 leading-[130%]" placeholder="olviadupont@gmail.com" required>
+        </div>
+        <div class="flex flex-col gap-1.5">
+            <label for="phone" class="text-sm text-grey font-bold leading-[130%]">Numéro de téléphone</label>
+            <input name="phone" type="tel" class="border border-thirdLightGrey rounded-lg px-3.5 py-2.5 leading-[130%]" placeholder="0734567854" required>
+        </div>
+    </div>
 
-    <details open>
-        <summary>
+    <details class="border border-thirdLightGrey rounded-lg p-6" open>
+        <summary class="text-xl font-bold leading-[130%] text-darkBlue">
             Compétences et domaines d’intervention
         </summary>
 
-        <label>1. Combien de temps pouvez-vous consacrer au bénévolat ?</label>
-            <textarea name="benevolat-spendtime" id="benevolat-spendtime" placeholder="Écrivez ici" required></textarea>
-
-        <label>2. Quand préférez-vous intervenir ?</label>
-            <div>
-                <input type="checkbox" name="intervention" id="intervention1" value="En semaine">
-                <label for="intervention1">En semaine</label>
-            </div>
-            <div>
-                <input type="checkbox" name="intervention" id="intervention2" value="Le week-end">
-                <label for="intervention2">Le week-end</label>
-            </div>
-            <div>
-                <input type="checkbox" name="intervention" id="intervention3" value="En journée">
-                <label for="intervention3">En journée</label>
-            </div>
-            <div>
-                <input type="checkbox" name="intervention" id="intervention4" value="En soirée">
-                <label for="intervention4">En soirée</label>
+        <div class="flex flex-col gap-6 mt-6">
+            <div class="flex flex-col gap-4">
+                <label class="text-darkBlue font-medium leading-[130%]">1. Combien de temps pouvez-vous consacrer au bénévolat ?</label>
+                    <textarea name="benevolat-spendtime" id="benevolat-spendtime" class="border border-thirdLightGrey rounded-lg px-3.5 py-2.5 leading-[130%] h-30" placeholder="Écrivez ici" required></textarea>
             </div>
 
-        <label>3. Dans quels domaines pouvez-vous nous aider ?</label>
-            <div>
-                <input type="checkbox" name="domain" id="domain1" value="Soins / entretien des animaux">
-                <label for="domain1">Soins / entretien des animaux</label>
+            <div class="flex flex-col gap-4">
+                <label class="text-darkBlue font-medium leading-[130%]">2. Quand préférez-vous intervenir ?</label>
+                    <div class="text-sm font-medium leading-[20px] text-lightBlack accent-lightBlack flex gap-2">
+                        <input type="checkbox" name="intervention" id="intervention1" value="En semaine">
+                        <label for="intervention1">En semaine</label>
+                    </div>
+                    <div class="text-sm font-medium leading-[20px] text-lightBlack accent-lightBlack flex gap-2">
+                        <input type="checkbox" name="intervention" id="intervention2" value="Le week-end">
+                        <label for="intervention2">Le week-end</label>
+                    </div>
+                    <div class="text-sm font-medium leading-[20px] text-lightBlack accent-lightBlack flex gap-2">
+                        <input type="checkbox" name="intervention" id="intervention3" value="En journée">
+                        <label for="intervention3">En journée</label>
+                    </div>
+                    <div class="text-sm font-medium leading-[20px] text-lightBlack accent-lightBlack flex gap-2">
+                        <input type="checkbox" name="intervention" id="intervention4" value="En soirée">
+                        <label for="intervention4">En soirée</label>
+                    </div>
             </div>
-            <div>
-                <input type="checkbox" name="domain" id="domain2" value="Balade de chiens">
-                <label for="domain2">Balade de chiens</label>
+
+        <div class="flex flex-col gap-4">
+            <label class="text-darkBlue font-medium leading-[130%]">3. Dans quels domaines pouvez-vous nous aider ?</label>
+                    <div class="text-sm font-medium leading-[20px] text-lightBlack accent-lightBlack flex gap-2">
+                    <input type="checkbox" name="domain" id="domain1" value="Soins / entretien des animaux">
+                    <label for="domain1">Soins / entretien des animaux</label>
+                </div>
+                    <div class="text-sm font-medium leading-[20px] text-lightBlack accent-lightBlack flex gap-2">
+                    <input type="checkbox" name="domain" id="domain2" value="Balade de chiens">
+                    <label for="domain2">Balade de chiens</label>
+                </div>
+                    <div class="text-sm font-medium leading-[20px] text-lightBlack accent-lightBlack flex gap-2">
+                    <input type="checkbox" name="domain" id="domain3" value="Éducation canine">
+                    <label for="domain3">Éducation canine</label>
+                </div>
+                    <div class="text-sm font-medium leading-[20px] text-lightBlack accent-lightBlack flex gap-2">
+                    <input type="checkbox" name="domain" id="domain4" value="Aide administrative">
+                    <label for="domain4">Aide administrative</label>
+                </div>
+                    <div class="text-sm font-medium leading-[20px] text-lightBlack accent-lightBlack flex gap-2">
+                    <input type="checkbox" name="domain" id="domain5" value="Communication / réseaux socia / graphisme">
+                    <label for="domain5">Communication / réseaux sociaux / graphisme</label>
+                </div>
+                    <div class="text-sm font-medium leading-[20px] text-lightBlack accent-lightBlack flex gap-2">
+                    <input type="checkbox" name="domain" id="domain6" value="Organisation d’événements">
+                    <label for="domain6">Organisation d’événements</label>
+                </div>
+                    <div class="text-sm font-medium leading-[20px] text-lightBlack accent-lightBlack flex gap-2">
+                    <input type="checkbox" name="domain" id="domain7" value="Recherche de fonds / mécénat / sponsoring">
+                    <label for="domain7">Recherche de fonds / mécénat / sponsoring</label>
+                </div>
+                    <div class="text-sm font-medium leading-[20px] text-lightBlack accent-lightBlack flex gap-2">
+                    <input type="checkbox" name="domain" id="domain8" value="Autre">
+                    <label for="domain8">Autre</label>
+                </div>
             </div>
-            <div>
-                <input type="checkbox" name="domain" id="domain3" value="Éducation canine">
-                <label for="domain3">Éducation canine</label>
-            </div>
-            <div>
-                <input type="checkbox" name="domain" id="domain4" value="Aide administrative">
-                <label for="domain4">Aide administrative</label>
-            </div>
-            <div>
-                <input type="checkbox" name="domain" id="domain5" value="Communication / réseaux socia / graphisme">
-                <label for="domain5">Communication / réseaux sociaux / graphisme</label>
-            </div>
-            <div>
-                <input type="checkbox" name="domain" id="domain6" value="Organisation d’événements">
-                <label for="domain6">Organisation d’événements</label>
-            </div>
-            <div>
-                <input type="checkbox" name="domain" id="domain7" value="Recherche de fonds / mécénat / sponsoring">
-                <label for="domain7">Recherche de fonds / mécénat / sponsoring</label>
-            </div>
-            <div>
-                <input type="checkbox" name="domain" id="domain8" value="Autre">
-                <label for="domain8">Autre</label>
-            </div>
+        </div>
     </details>
 
-    <details open>
-        <summary>
+    <details class="border border-thirdLightGrey rounded-lg p-6" open>
+        <summary class="text-xl font-bold leading-[130%] text-darkBlue">
             Motivation
         </summary>
 
-        <label>Pourquoi souhaitez-vous devenir bénévole au refuge ?</label>
-            <textarea name="benevolat-reason" id="benevolat-reason" placeholder="Écrivez ici" required></textarea>
+        <div class="flex flex-col gap-4 mt-6">
+            <label class="text-darkBlue font-medium leading-[130%]">Pourquoi souhaitez-vous devenir bénévole au refuge ?</label>
+                <textarea name="benevolat-reason" id="benevolat-reason"class="border border-thirdLightGrey rounded-lg px-3.5 py-2.5 leading-[130%] h-30" placeholder="Écrivez ici" required></textarea>
+        </div>
     </details>
 
-    <button type="submit" class="flex gap-2 py-3 px-5 bg-blue text-darkBlue rounded-lg font-bold leading-[130%] cursor-pointer">
+    <button type="submit" class="flex items-center gap-2 py-3 px-5 bg-blue text-darkBlue rounded-lg font-bold leading-[130%] cursor-pointer w-fit self-end mt-4">
         Envoyer ma demande
-        <img src="/svg/mail.svg" alt="">
+        <img src="/svg/contact-mail.svg" alt="">
     </button>
 </form>
