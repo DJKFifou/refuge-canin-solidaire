@@ -1,17 +1,22 @@
 ---
-const { page_type, img_url, title, text, links = [], cta_type, cta_url, cta_link, cta_icon } = Astro.props;
+const { page_type, img_url, title, line, text, links = [] } = Astro.props;
 ---
 
 <div class="relative h-[calc(100vh-100px)] bg-lightBlue">
     {img_url && (
     <div class="h-full w-full rounded-2xl px-20 py-14">
-        <img src={img_url} alt="Hero" class="h-full w-full object-cover rounded-2xl brightness-60" />
+        <img src={img_url} alt="Hero" class="h-full w-full object-cover rounded-2xl brightness-40" />
     </div>
     )}
-    <div class=`absolute ${page_type === "contact" ? 'top-2/5' : 'top-1/2'} left-1/2 -translate-1/2 flex flex-col gap-8 w-full items-center justify-center px-25 text-center`>
+    <div class=`absolute ${page_type === "contact" ? 'top-2/5' : 'top-1/2'} left-1/2 -translate-1/2 flex flex-col gap-8 w-full items-center justify-center px-30 text-center`>
         <div class="flex flex-col gap-6 text-white">
             {title && (
-                <h2 class="text-[60px] font-title font-black leading-[120%] -tracking-[1.2px]">{title}</h2>
+                <h2 class="relative text-[60px] font-title font-black leading-[120%] -tracking-[1.2px]">
+                    {title}
+                    {line && (
+                        <img src="/svg/line.svg" alt="Ligne décorative" class="absolute top-full right-15" />
+                    )}
+                </h2>
             )}
             {text && (
                 <h5 class="text-xl font-medium leading-[130%]">{text}</h5>
@@ -41,6 +46,4 @@ const { page_type, img_url, title, text, links = [], cta_type, cta_url, cta_link
         </div>
     </div>
 </div>
-<div>
-    <img src="/svg/hero-bottom.svg" alt="Élément décoratif">
-</div>
+<img src="/svg/hero-bottom.svg" alt="Élément décoratif" class="w-full">

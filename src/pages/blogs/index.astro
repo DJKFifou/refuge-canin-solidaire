@@ -2,11 +2,19 @@
 import Card from "@/components/Card.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getBlogs } from "../../../sanity/utilis/sanity";
+import Hero from "@/components/Hero.astro";
 
 const posts = await getBlogs();
+
+const links = [
+  { type: 'secondary', href: 'tel:0600000000', label: '0600000000', icon:'phone' },
+  { type: 'secondary', href: 'mailto:refugecaninsolidaire@gmail.com', label: 'refugecaninsolidaire@gmail.com', icon:'mail' },
+  { type: 'secondary', href: '', label: '15 avenue Lafarge, Gironde, 33000', icon:'ping' }
+];
 ---
 
 <Layout title="Blogs">
+  <Hero img_url="/images/hero-blog.jpg" title="Infos et conseils pour adopter, comprendre & aimer." line />
   <section class="grid gap-6grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 py-8 max-w-7xl mx-auto
   ">
     {posts.length ? posts.map((post) => 
