@@ -1,0 +1,34 @@
+---
+import Button from "./ui/Button.astro";
+import CardShop from "./ui/CardShop.astro";
+import type { ShopProps } from "./ui/CardShop.astro";
+
+interface Props {
+	products: ShopProps[];
+}
+const { products } = Astro.props;
+---
+
+<section class="relative h-screen w-full flex flex-col gap-9 justify-center items-center bg-blue" id="shop-section">
+  <div class="container-grid space-y-6">
+    <div class="max-w-3xl text-center mx-auto space-y-3 mb-12">
+      <h2 class="h2">Un petit achat pour vous, un grand soutien pour eux.</h2>
+      <p>Nos produits solidaires financent croquettes, soins et confort pour les chiens du refuge.</p>
+    </div>
+    <div class="grid grid-cols-3 gap-11 w-full text-center">
+      {products.map(product => (
+        <CardShop
+          srcImg={product.srcImg}
+          href={product.href}
+          title={product.title}
+          price={product.price}
+          description={product.description}
+        />
+      ))}
+    </div>
+
+    <div class="flex justify-center">
+      <Button src="/dogs" text="Voir la boutique" />
+    </div>
+  </div>
+</section>

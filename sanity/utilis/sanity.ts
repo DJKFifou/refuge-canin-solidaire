@@ -31,13 +31,18 @@ export interface Blog {
 }
 
 //Dogo
-export async function getDogs(): Promise<Blog[]> {
+export async function getDogs(): Promise<Dog[]> {
 	return await sanityClient.fetch(
 		groq`*[_type == "dog" && defined(slug.current)] | order(_createdAt desc)`,
 	);
 }
+export async function getThreeDogs(): Promise<Dog[]> {
+	return await sanityClient.fetch(
+		groq`*[_type == "dog" && defined(slug.current)] | order(_createdAt desc)[0...3]`,
+	);
+}
 
-export async function getDog(slug: string | null): Promise<Blog> {
+export async function getDog(slug: string | null): Promise<Dog> {
 	return await sanityClient.fetch(
 		groq`*[_type == "dog" && slug.current == $slug][0]`,
 		{
@@ -48,13 +53,32 @@ export async function getDog(slug: string | null): Promise<Blog> {
 
 export interface Dog {
 	_type: "dog";
-	_createdAt: string;
-	title: string;
+	_id: string;
+
+	name: string;
 	slug: Slug;
-	image?: ImageAsset & { alt?: string };
-	images?: (ImageAsset & { alt?: string })[];
-	subtitle?: string;
-	description?: PortableTextBlock[];
-	publishedAt: string;
-	breed?: string;
+
+	dogprority: string;
+	arrivalDate: string;
+	age: number;
+	weight: number;
+	gender: string;
+	breed: string;
+	shortDescription: string;
+	historyDescription: PortableTextBlock[];
+
+	mainImage?: ImageAsset;
+	gallery?: ImageAsset[];
+
+	healthStatus: string;
+	healthDescription?: PortableTextBlock[];
+
+	needs: string;
+	needsDescription?: PortableTextBlock[];
+
+	affinities: string;
+	affinitiesDescription?: PortableTextBlock[];
+
+	care: string;
+	healthCare?: PortableTextBlock[];
 }

@@ -1,0 +1,73 @@
+---
+import type { StepProps } from "./ui/CardStep.astro";
+import CardStep from "./ui/CardStep.astro";
+
+interface Props {
+	steps: StepProps[];
+}
+
+const { steps } = Astro.props;
+---
+
+
+<section class="relative h-screen w-full flex justify-center items-center bg-blue" id="caca">
+    <img src="/svg/bg/wave-beige-top.svg" class="w-full absolute -top-16 rotate-180">
+  <h2
+    class="h2 text-center z-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    Avant chaque adoption, il y a un chemin parcouru.
+  </h2>
+
+
+<div class="z-10 text-center w-full px-4 mx-auto">
+  <div
+    class="flex justify-center "
+    id="cards-container"
+  >
+    {steps.map((step, i) => (
+      <div
+        class="relative"
+        style={`transform: translateX(${-15 * i}px) rotate(${i % 2 === 0 ? -2 : 1.2}deg); z-index: ${100 - i};`}
+      >
+        <CardStep 
+          title={step.title}
+          description={step.description}
+          objective={step.objective}
+          i={i}
+        />
+      </div>
+    ))}
+  </div>
+</div>
+</div>
+
+
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  function cardStepAnimation() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const cards = gsap.utils.toArray(".card-step");
+
+    gsap.to(cards, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.5,
+      scrollTrigger: {
+        trigger: "#caca",
+        start: "top top",
+        end: "+=1000",
+        pin: true,
+        scrub: true,
+        // markers: true,
+      },
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", cardStepAnimation);
+</script>

@@ -1,0 +1,23 @@
+---
+export interface ValuePros {
+	title: string;
+	description: string;
+	iconBg?: string;
+	iconSrc: string;
+}
+
+const { title, description, iconSrc, iconBg = "bg-blue" } = Astro.props;
+---
+<div class="flex flex-col items-center justify-center gap-6 text-center max-w-60">
+  <img
+  src={iconSrc}
+    src="/svg/dogs/logo-dog.svg"
+    width="75"
+    height="55"
+    class={`p-3 size-20 rounded-full ${iconBg}`}
+    alt={title}
+    loading="lazy"
+/>
+  <h3 class="h3">{title}</h3>
+  <p>{description}</p>
+</div>

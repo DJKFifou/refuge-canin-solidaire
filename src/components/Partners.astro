@@ -1,0 +1,17 @@
+---
+const partnerCount = 7;
+const partners = Array.from({ length: partnerCount }, (_, i) => i + 1);
+---
+
+<section class="container m-auto py-64 flex flex-col gap-9 justify-center items-center" id="caca">
+    <h2 class="h2">Merci à celles et ceux qui rendent notre mission possible.</h2>
+  <div class="flex flex-wrap justify-center items-center gap-12">
+    {partners.map((num) => (
+      <img 
+        src={`/img/partners/partner-${num}.png`} 
+        alt={`Logo partenaire ${num}`} 
+        class="max-h-36 object-contain"
+      />
+    ))}
+  </div>
+</section>

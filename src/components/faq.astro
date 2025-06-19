@@ -1,0 +1,40 @@
+---
+import Accordion from "../components/ui/Accordion.astro";
+import Button from "./ui/Button.astro";
+
+const accordionData = [
+	{
+		title: "Puis-je adopter si je vis en appartement ?",
+		content:
+			"Oui, l’important n’est pas la surface mais le temps et l’attention que vous consacrez au chien. Certains chiens sont très heureux en appartement s’ils sont bien sortis, stimulés et entourés.",
+	},
+	{
+		title: "Comment savoir si un chien est compatible avec mon mode de vie ?",
+		content:
+			"C’est justement notre rôle ! Grâce à un petit formulaire et un entretien, nous évaluons ensemble votre quotidien pour vous orienter vers un chien compatible.",
+	},
+	{
+		title: "Les chiens sont-ils éduqués avant l’adoption ?",
+		content:
+			"Nous travaillons avec chaque chien selon ses besoins : socialisation, marche en laisse, gestion des émotions… Vous êtes accompagné pour poursuivre cela à la maison.",
+	},
+	{
+		title: "Comment puis-je aider si je ne peux pas adopter ?",
+		content:
+			"De nombreuses façons : en devenant bénévole, en faisant un don, en parrainant un chien, en relayant nos publications… Chaque geste compte.",
+	},
+];
+---
+
+<div class="relative bg-beige pb-24">
+  <img src="/svg/bg/wave-beige-top.svg" class="w-full absolute top-0">
+  <section class=" container mx-auto px-4 pt-72 flex justify-between gap-16">
+  <div class="space-y-5 z-10">
+    <h2 class="h2">Vous vous posez des questions ?</h2>
+    <p>C’est normal, et c’est même bon signe. Voici les réponses aux interrogations les plus fréquentes.</p>
+    <Button src="/ee" text="En savoir plus" />
+  </div>
+
+  <Accordion items={accordionData} />
+</section>
+</div>

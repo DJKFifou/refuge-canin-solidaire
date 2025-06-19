@@ -1,0 +1,23 @@
+---
+import CardValue, { type ValuePros } from "./ui/CardValue.astro";
+
+interface Props {
+	values: ValuePros[];
+}
+
+const { values } = Astro.props;
+---
+
+<section class="container-grid flex flex-col py-28 justify-center items-center">
+  <h2 class="text-center h2">Ce qui nous tient à cœur</h2>
+  <div class="flex flex-wrap justify-center gap-14 mt-12">
+    {values.map((item) => (
+      <CardValue
+        title={item.title}
+        description={item.description}
+        iconBg={item.iconBg}
+		iconSrc={item.iconSrc}
+      />
+    ))}
+  </div>
+</section>

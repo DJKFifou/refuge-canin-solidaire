@@ -16,8 +16,8 @@ interface Props {
 const { img } = Astro.props;
 ---
 
-<div class="relative h-screen flex justify-center items-center overflow-hidden" id="box">
-
+<div class="relative h-screen flex justify-center items-center overflow-x no-scroll bg-blue" id="box">
+    <img src="/svg/bg/wave-blue-top.svg" class="absolute w-full -bottom-9" >
   <div class="absolute inset-0 z-0 pointer-events-none">
     {img.map((image, idx) => (
       <img
@@ -30,14 +30,18 @@ const { img } = Astro.props;
     ))}
   </div>
 
-  <div class="relative z-10 text-center space-y-9 max-w-xl">
-    <h1 class="text-4xl font-bold">caca</h1>
-    <p>
+  <!-- Contenu centré -->
+  <div class="relative z-10 text-center space-y-9 max-w-5xl mx-auto">
+    <h1 class="h1">
+      Ils n'attendent qu'une seconde chance. Et si c'était <span class="font-variant">vous ?</span>
+    </h1>
+    <p class="max-w-2xl mx-auto">
       Un refuge, des rencontres, des histoires. Adopter un chien, c'est lui donner une seconde chance, et vivre la vôtre différemment.
     </p>
     <Button src="/dogs" text="Contactez-nous" />
   </div>
 </div>
+
 
 <script>
   import { gsap } from "gsap";
@@ -47,8 +51,8 @@ const { img } = Astro.props;
     gsap.registerPlugin(ScrollTrigger);
 
     const dogImages = document.querySelectorAll(".dog-image");
-
-
+    const container = document.getElementById("box");
+    
     dogImages.forEach((img, idx) => {
       gsap.to(img, {
         clipPath: "inset(0% 0 0 0)",
@@ -62,6 +66,47 @@ const { img } = Astro.props;
         },
       });
     });
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let isMouseInside = false;
+
+    if (container) {
+      container.addEventListener('mouseenter', () => {
+        isMouseInside = true;
+      });
+
+      container.addEventListener('mouseleave', () => {
+        isMouseInside = false;
+        dogImages.forEach((img, idx) => {
+          gsap.to(img, {
+            x: 0,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out"
+          });
+        });
+      });
+
+      container.addEventListener('mousemove', (e) => {
+        if (!isMouseInside) return;
+
+        const rect = container.getBoundingClientRect();
+        mouseX = (e.clientX - rect.left - rect.width / 2) / rect.width;
+        mouseY = (e.clientY - rect.top - rect.height / 2) / rect.height;
+
+        dogImages.forEach((img, idx) => {
+          const parallaxFactor = (idx + 1) * 15;
+          
+          gsap.to(img, {
+            x: mouseX * parallaxFactor,
+            y: mouseY * parallaxFactor,
+            duration: 0.6,
+            ease: "power2.out"
+          });
+        });
+      });
+    }
   }
 
   document.addEventListener('DOMContentLoaded', initAnimations);

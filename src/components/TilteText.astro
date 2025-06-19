@@ -1,0 +1,33 @@
+---
+import Button from "./ui/Button.astro";
+
+interface ButtonProps {
+	src: string;
+	text: string;
+}
+
+interface Props {
+	title: string;
+	description: string;
+	buttons: ButtonProps[];
+}
+
+const { title, description, buttons } = Astro.props;
+---
+
+<section class="relative flex justify-center items-center p-36 overflow-hidden">
+    <div class="-z-10">
+        <img src="/svg/dogs/dog-3.svg" class="absolute bottom-10 left-28">
+        <img src="/svg/dogs/dog-4.svg" class="absolute top-0 right-28">
+    </div>
+
+  <div class="max-w-4xl text-center space-y-6">
+    <h2 class="z-10 h2">{title}</h2>
+    <p class="text-lg">{description}</p>
+    <div class="flex flex-wrap justify-center gap-4">
+      {buttons.map((btn) => (
+        <Button src={btn.src} text={btn.text} />
+      ))}
+    </div>
+  </div>
+</section>

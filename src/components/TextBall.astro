@@ -1,0 +1,85 @@
+---
+interface Props {
+	title: string;
+}
+const { title } = Astro.props;
+---
+
+<section id="boxBall" class="relative flex justify-center items-center h-screen overflow-hidden">
+  <h2 class="text-center z-10 max-w-4xl h2">{title}</h2>
+  <div>
+    <img id="dog1" src="/svg/dogs/dog-1.svg" alt="illustration dog" class="absolute bottom-16 -left-12">
+    <img id="dog2" src="/svg/dogs/dog-2.svg" alt="illustration dog" width="450" height="350" class="absolute bottom-0 -right-12">
+    <img id="ball" src="svg/ball.svg"  class="size-12 absolute bottom-16">
+  </div>
+</section>
+
+<script>
+    import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+window.addEventListener("load", () => {
+  const dog1 = document.getElementById("dog1");
+  const dog2 = document.getElementById("dog2");
+  const ball = document.getElementById("ball");
+    if (!ball || !dog1 || !dog2) return;
+
+  function positionBall() {
+    if (!ball || !dog1) return;
+    const offsetDog1 = dog1.offsetLeft + dog1.offsetWidth;
+    ball.style.left = `${offsetDog1 + 10}px`;
+  }
+
+  positionBall();
+  window.addEventListener("resize", positionBall);
+
+  ScrollTrigger.create({
+    trigger: "#boxBall",
+    start: "center center",
+    end: "bottom center",
+    onEnter: () => {
+      gsap.to(dog1, { x: 50, duration: 0.5, ease: "power1.out" });
+      gsap.to(ball, {
+        x: () => {
+          const offsetDog1 = dog1.offsetLeft + dog1.offsetWidth - 30;
+          const distance = dog2.offsetLeft - offsetDog1 - ball.offsetWidth - 10;
+          return distance;
+        },
+        rotation: 360,
+        duration: 1.5,
+        ease: "power2.out"
+      });
+    },
+    onLeaveBack: () => {
+      gsap.to(dog1, { x: 0, duration: 0.5, ease: "power1.out" });
+      gsap.to(ball, { x: 0, rotation: 0, duration: 1.5, ease: "power2.out" });
+    }
+  });
+
+  // Dog2 renvoie la balle vers dog1
+  ScrollTrigger.create({
+    trigger: "#boxBall",
+    start: "bottom center",
+    end: "bottom top",
+    onEnter: () => {
+      gsap.to(dog2, { x: -50, duration: 0.5, ease: "power1.out" });
+      gsap.to(ball, { x: 0, rotation: 720, duration: 1.5, ease: "power2.out" });
+    },
+    onLeaveBack: () => {
+      gsap.to(dog2, { x: 0, duration: 0.5, ease: "power1.out" });
+      gsap.to(ball, {
+        x: () => {
+          const offsetDog1 = dog1.offsetLeft + dog1.offsetWidth - 30;
+          const distance = dog2.offsetLeft - offsetDog1 - ball.offsetWidth - 10;
+          return distance;
+        },
+        rotation: 360,
+        duration: 1.5,
+        ease: "power2.out"
+      });
+    }
+  });
+});
+</script>

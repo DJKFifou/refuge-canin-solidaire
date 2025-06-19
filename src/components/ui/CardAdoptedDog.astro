@@ -1,0 +1,16 @@
+---
+interface Props {
+	name: string;
+	master: string;
+}
+
+const { name, master } = Astro.props;
+---
+
+<div class="w-full border border-b-gray-400 bg-green rounded-xl p-3.5 flex flex-col gap-3.5">
+  <div class="relative w-full">
+    <img src="/img/dogs/dog.webp" class="w-full h-80 object-cover rounded-2xl" />
+  </div>
+  <h3>Moi c'est <span class="font-variant text-2xl"> {name}</span></h3>
+  <p>Et <span class="bg-[#FFC9AD] p-1.5 rounded-xl">{master}</span> c’est ma nouvelle famille</p>
+</div>

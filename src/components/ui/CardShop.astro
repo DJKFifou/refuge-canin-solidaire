@@ -1,0 +1,28 @@
+---
+export interface ShopProps {
+	srcImg: string;
+	href: string;
+	title: string;
+	price: string;
+	description: string;
+}
+
+const { srcImg, href, title, description, price } = Astro.props as ShopProps;
+---
+
+<a href={href} target='_blank' class="w-full bg-white rounded-2xl p-6 block shadow-md hover:shadow-lg transition">
+  <div class="relative w-full">
+    <img src={srcImg} class="w-full h-80 object-cover rounded-2xl" alt={title} />
+    <span class="absolute top-1.5 left-1.5 p-2 bg-white rounded-2xl text-xs font-semibold">Achat via Hello Asso</span>
+  </div>
+  <div class="space-y-3.5 my-3.5 text-left">
+    <h3 class="h3">{title}</h3>
+    <p>{description}</p>
+    <div class="flex justify-between items-center">
+      <p class="text-blue_black font-bold text-2xl font-grotesk">{price}</p>
+      <div>
+        <img src="/svg/shopping-cart.svg" class="p-2 bg-blue rounded-sm" alt="Panier" />
+      </div>
+    </div>
+  </div>
+</a>

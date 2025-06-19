@@ -1,0 +1,43 @@
+---
+import { formatDate } from "../../sanity/utilis";
+import { urlFor } from "../../sanity/utilis/image";
+import type { Dog } from "../../sanity/utilis/sanity";
+
+interface Props {
+	data: Dog;
+}
+
+const { data } = Astro.props;
+---
+<section>
+  <div class="group flex flex-col p-3 bg-beige border border-gray-300 rounded-md hover:shadow-md transition-shadow duration-200">
+    
+    <div class="relative w-full aspect-square">
+      {data?.mainImage ? (
+        <>
+          <img
+            class="w-full h-full object-cover rounded-md"
+            src={urlFor(data.mainImage).width(1000).height(1000).url()}
+            alt={`${data.name}`}
+            loading="lazy"
+          />
+          <a
+            href={`/dogs/${data.slug.current}`}
+            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/15 text-white font-bold text-lg transition-opacity duration-300"
+          >
+            Découvré {data.name}
+          </a>
+        </>
+      ) : (
+        <div class="w-full h-full bg-gray-300 rounded-md"></div>
+      )}
+    </div>
+
+    <div class="p-4 flex flex-col flex-grow">
+      <h3 class="text-lg font-extrabold mb-2">
+        <span class="text-gray-900">moi c'est <span class="font-variant text-2xl">{data.name}</span></span>
+      </h3>
+      <p class="text-gray-600 mb-4 flex-grow">{data.shortDescription || "e"}</p>
+    </div>
+  </div>
+</section>
