@@ -1,0 +1,23 @@
+---
+const { page_type, img_url, title, text, cta_type, cta_url, cta_link, cta_icon } = Astro.props;
+---
+
+<div class="relative h-[calc(100vh-100px)] bg-lightBlue">
+    <div class="h-full w-full rounded-2xl px-20 py-14">
+        <img src="/images/hero-contact.jpg" alt="Hero" class="h-full w-full object-cover rounded-2xl brightness-60">
+    </div>
+    <div class="absolute top-1/2 left-1/2 -translate-1/2 flex flex-col gap-8 w-full items-center justify-center px-25 text-center">
+        <div class="flex flex-col gap-6 text-white">
+            <h2 class="text-[60px] font-title font-black leading-[120%] -tracking-[1.2px]">Une question, une envie d’aider, un doute avant l’adoption ?</h2>
+            <h5 class="text-xl font-medium leading-[130%]">Écrivez-nous via ce formulaire : nous lisons chaque message avec attention, et vous orienterons au mieux selon votre besoin.</h5>
+        </div>
+        <div class="flex gap-6 flex-wrap">
+            <a href="tel:0600000000" class="bg-white/20 backdrop-blur-md rounded-lg text-white p-4">0600000000</a>
+            <a href="mailto:refugecaninsolidaire@gmail.com" class="bg-white/20 backdrop-blur-md rounded-lg text-white p-4">refugecaninsolidaire@gmail.com</a>
+            <a href="" class="bg-white/20 backdrop-blur-md rounded-lg text-white p-4">15 avenue lafarge, Gironde, 33000</a>
+        </div>
+    </div>
+</div>
+<div>
+    <img src="/svg/hero-bottom.svg" alt="Élément décoratif">
+</div>
