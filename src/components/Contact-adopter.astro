@@ -1,27 +1,196 @@
-<details>
-    <summary>
-        Cadre de vie et environnement 1
-    </summary>
-    <label for="majeur">Êtes-vous majeur ?</label>
-    <div>
-        <input type="radio" name="majeur">
-        <label for="majeur">Oui</label>
-    </div>
-    <div>
-        <input type="radio" name="majeur">
-        <label for="majeur">Non</label>
-    </div>
-    <label for="majeur">Êtes-vous majeur ?</label>
-    <div>
-        <input type="radio" name="logement">
-        <label for="majeur">Appartement</label>
-    </div>
-    <div>
-        <input type="radio" name="logement">
-        <label for="majeur">Maison avec jardin</label>
-    </div>
-    <div>
-        <input type="radio" name="logement">
-        <label for="majeur">Maison sans jardin</label>
-    </div>
-</details>
+<form id="adoption-form" class="flex flex-col gap-4">
+    <h4>Informations générales</h4>
+	<div class="flex flex-col gap-2">
+		<label for="name">Nom Prénom</label>
+		<input name="name" type="text" class="border" placeholder="Dupont Olivia" required>
+	</div>
+	<div class="flex flex-col gap-2">
+		<label for="email">Email</label>
+		<input name="email" type="email" class="border" placeholder="olviadupont@gmail.com" required>
+	</div>
+	<div class="flex flex-col gap-2">
+		<label for="phone">Numéro de téléphone</label>
+		<input name="phone" type="tel" class="border" placeholder="0734567854" required>
+	</div>
+    <details open>
+        <summary>
+            Cadre de vie et environnement
+        </summary>
+
+        <label>Êtes-vous majeur ?</label>
+            <div>
+                <input type="radio" name="major" id="major1" value="Oui" required>
+                <label for="major1">Oui</label>
+            </div>
+            <div>
+                <input type="radio" name="major" id="major2" value="Non">
+                <label for="major2">Non</label>
+            </div>
+
+        <label>Quel est votre type de logement ? (choix unique)</label>
+            <div>
+                <input type="radio" name="housing" id="housing1" value="Appartement" required>
+                <label for="housing1">Appartement</label>
+            </div>
+            <div>
+                <input type="radio" name="housing" id="housing2" value="Maison avec jardin">
+                <label for="housing2">Maison avec jardin</label>
+            </div>
+            <div>
+                <input type="radio" name="housing" id="housing3" value="Maison sans jardin">
+                <label for="housing3">Maison sans jardin</label>
+            </div>
+
+        <label>Avez-vous un accès extérieur sécurisé ?</label>
+            <div>
+                <input type="radio" name="exterior" id="exterior1" value="Oui" required>
+                <label for="exterior1">Oui</label>
+            </div>
+            <div>
+                <input type="radio" name="exterior" id="exterior2" value="Non">
+                <label for="exterior2">Non</label>
+            </div>
+
+        <label>Combien de personnes vivent à votre domicile ?</label>
+            <div>
+                <input type="radio" name="living" id="living1" value="1" required>
+                <label for="living1">1</label>
+            </div>
+            <div>
+                <input type="radio" name="living" id="living2" value="2">
+                <label for="living2">2</label>
+            </div>
+            <div>
+                <input type="radio" name="living" id="living3" value="3">
+                <label for="living3">3</label>
+            </div>
+
+        <label>Y a-t-il des enfants dans le foyer ?</label>
+            <div>
+                <input type="radio" name="children" id="children1" value="Oui" required>
+                <label for="children1">Oui</label>
+            </div>
+            <div>
+                <input type="radio" name="children" id="children2" value="Non">
+                <label for="children2">Non</label>
+            </div>
+
+        <label>Avez-vous d’autres animaux actuellement ?</label>
+            <div>
+                <input type="radio" name="animals" id="animals1" value="Aucun" required>
+                <label for="animals1">Aucun</label>
+            </div>
+            <div>
+                <input type="radio" name="animals" id="animals2" value="Un chien">
+                <label for="animals2">Un chien</label>
+            </div>
+            <div>
+                <input type="radio" name="animals" id="animals3" value="Un chat">
+                <label for="animals3">Un chat</label>
+            </div>
+
+        <label>Avez-vous déjà eu un chien ?</label>
+            <div>
+                <input type="radio" name="dog" id="dog1" value="Oui" required>
+                <label for="dog1">Oui</label>
+            </div>
+            <div>
+                <input type="radio" name="dog" id="dog2" value="Non">
+                <label for="dog2">Non</label>
+            </div>
+    </details>
+
+    <details open>
+        <summary>
+            Temps et disponibilité
+        </summary>
+
+        <label>Combien d’heures par jour le chien resterait-il seul ? (choix unique)</label>
+            <div>
+                <input type="radio" name="dog-alone" id="dog-alone1" value="Moins de 2h" required>
+                <label for="dog-alone1">Moins de 2h</label>
+            </div>
+            <div>
+                <input type="radio" name="dog-alone" id="dog-alone2" value="2-4h">
+                <label for="dog-alone2">2-4h</label>
+            </div>
+            <div>
+                <input type="radio" name="dog-alone" id="dog-alone3" value="4-6h">
+                <label for="dog-alone3">4-6h</label>
+            </div>
+            <div>
+                <input type="radio" name="dog-alone" id="dog-alone4" value="Plus de 6h">
+                <label for="dog-alone4">Plus de 6h</label>
+            </div>
+
+        <label>Quel temps pourriez-vous lui accorder au quotidien ? (balades, jeux, attention)</label>
+            <div>
+                <input type="radio" name="according-time" id="according-time1" value="Moins de 30 minutes" required>
+                <label for="according-time1">Moins de 30 minutes</label>
+            </div>
+            <div>
+                <input type="radio" name="according-time" id="according-time2" value="30 min - 1h">
+                <label for="according-time2">30 min - 1h</label>
+            </div>
+            <div>
+                <input type="radio" name="according-time" id="according-time3" value="Plus d'1h">
+                <label for="according-time3">Plus d'1h</label>
+            </div>
+            <div>
+                <input type="radio" name="according-time" id="according-time4" value="Plus de 2h">
+                <label for="according-time4">Plus de 2h</label>
+            </div>
+
+        <label>Avez-vous déjà un mode de garde pour les absences prolongées ?</label>
+            <div>
+                <input type="radio" name="absences" id="absences1" value="Oui" required>
+                <label for="absences1">Oui</label>
+            </div>
+            <div>
+                <input type="radio" name="absences" id="absences2" value="Non">
+                <label for="absences2">Non</label>
+            </div>
+            <div>
+                <input type="radio" name="absences" id="absences3" value="Je prévois d'en chercher un">
+                <label for="absences3">Je prévois d'en chercher un</label>
+            </div>
+
+    </details>
+
+    <details open>
+        <summary>
+            Consentement et engagement
+        </summary>
+
+        <label>Êtes-vous prêt(e) à engager des frais vétérinaires réguliers ? (choix unique)</label>
+            <div>
+                <input type="radio" name="veterinary-costs" id="veterinary-costs1" value="Oui" required>
+                <label for="veterinary-costs1">Oui</label>
+            </div>
+            <div>
+                <input type="radio" name="veterinary-costs" id="veterinary-costs2" value="Non">
+                <label for="veterinary-costs2">Non</label>
+            </div>
+            <div>
+                <input type="radio" name="veterinary-costs" id="veterinary-costs3" value="À discuter selon la situation">
+                <label for="veterinary-costs3">À discuter selon la situation</label>
+            </div>
+
+        <label>Pourquoi souhaitez-vous adopter un chien ?</label>
+        <textarea name="adoption-reason" id="adoption-reason" placeholder="Écrivez ici" required></textarea>
+
+        <label>Avant de finaliser votre demande</label>
+            <div>
+                <input type="checkbox" name="finalisation" id="finalisation1" value="Oui" required>
+                <label for="finalisation1">Je suis conscient(e) qu’un chien demande du temps, de la patience et une attention quotidienne.</label>
+            </div>
+            <div>
+                <input type="checkbox" name="finalisation" id="finalisation2" value="Oui" required>
+                <label for="finalisation2">J’ai lu et j’adhère aux valeurs du refuge (éducation bienveillante, engagement durable, respect de l’animal).</label>
+            </div>
+    </details>
+	<button type="submit" class="flex gap-2 py-3 px-5 bg-blue text-darkBlue rounded-lg font-bold leading-[130%] cursor-pointer">
+        Envoyer ma demande
+        <img src="/svg/mail.svg" alt="">
+    </button>
+</form>

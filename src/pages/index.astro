@@ -5,23 +5,4 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <Welcome />
-  <form action="api/send" method="POST" class="flex flex-col gap-4">
-	<div class="flex flex-col gap-2">
-		<label for="email">Email :</label>
-		<input name="email" type="email" class="border" required>
-	</div>
-	<div class="flex flex-col gap-2">
-		<label for="phone">Téléphone :</label>
-		<input name="phone" type="tel" class="border" required>
-	</div>
-	<div class="flex flex-col gap-2">
-		<label for="firstname">Prénom :</label>
-		<input name="firstname" type="text" class="border" required>
-	</div>
-	<div class="flex flex-col gap-2">
-		<label for="lastname">Nom :</label>
-		<input name="lastname" type="text" class="border" required>
-	</div>
-	<button type="submit">Send email</button>
-  </form>
 </Layout>

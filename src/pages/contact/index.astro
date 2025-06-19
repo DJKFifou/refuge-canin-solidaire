@@ -15,8 +15,8 @@ import ContactPartenaire from '@/components/Contact-partenaire.astro';
       <button class="border" data-target="benevole">Show comp 3</button>
       <button class="border" data-target="partenaire">Show comp 4</button>
     </div>
-
-    <div id="adopter" hidden>
+    <p>Tous les champs du formulaire sont obligatoires</p>
+    <div id="adopter">
       <ContactAdopter />
     </div>
     <div id="parrainer" hidden>
@@ -27,6 +27,18 @@ import ContactPartenaire from '@/components/Contact-partenaire.astro';
     </div>
     <div id="partenaire" hidden>
       <ContactPartenaire />
+    </div>
+  </div>
+
+  <div id="success-popup" class="fixed inset-0 bg-black/50 items-center justify-center z-50 hidden">
+    <div class="relative flex flex-col items-center justify-center gap-4 bg-white p-6 rounded-lg shadow-lg text-center max-w-md">
+      <img src="/svg/close.svg" alt="Fermeture de la pop-up" class="absolute top-4 right-4 h-6 w-6 cursor-pointer" id="close-popup">
+      <div class="flex items-center justify-center bg-green rounded-full p-6">
+        <img src="/svg/check-circle.svg" alt="Icône de check" class="h-9 w-9">
+      </div>
+      <h2 class="text-4xl font-bold leading-[130%] -tracking[0.72px]">Merci pour votre demande de contact</h2>
+      <p class="font-bold leading-[130%]">Votre demande a bien été envoyée à l’équipe du Refuge Canin Solidaire. Nous vous répondrons dans les meilleurs délais.</p>
+      <a href="/" class="w-full py-3 px-5 bg-blue text-darkBlue rounded-lg font-bold leading-[130%] cursor-pointer mt-1.5">Retour à l'accueil</a>
     </div>
   </div>
 
@@ -44,6 +56,33 @@ import ContactPartenaire from '@/components/Contact-partenaire.astro';
             });
         });
         });
+    });
+
+    const popup = document.getElementById('success-popup');
+    const closeBtn = document.getElementById('close-popup');
+
+    document.querySelectorAll('form').forEach((form) => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const response = await fetch('/api/send', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          form.reset();
+          popup?.classList.remove('hidden');
+          popup?.classList.add('flex');
+        } else {
+          alert("Erreur lors de l'envoi du formulaire.");
+        }
+      });
+    });
+
+    closeBtn?.addEventListener('click', () => {
+      popup?.classList.add('hidden');
     });
     </script>
 </Layout>

@@ -1,27 +1,90 @@
-<details>
-    <summary>
-        Cadre de vie et environnement 3
-    </summary>
-    <label for="majeur">Êtes-vous majeur ?</label>
-    <div>
-        <input type="radio" name="majeur">
-        <label for="majeur">Oui</label>
-    </div>
-    <div>
-        <input type="radio" name="majeur">
-        <label for="majeur">Non</label>
-    </div>
-    <label for="majeur">Êtes-vous majeur ?</label>
-    <div>
-        <input type="radio" name="logement">
-        <label for="majeur">Appartement</label>
-    </div>
-    <div>
-        <input type="radio" name="logement">
-        <label for="majeur">Maison avec jardin</label>
-    </div>
-    <div>
-        <input type="radio" name="logement">
-        <label for="majeur">Maison sans jardin</label>
-    </div>
-</details>
+<form id="benevolat-form" class="flex flex-col gap-4">
+    <h4>Informations générales</h4>
+	<div class="flex flex-col gap-2">
+		<label for="name">Nom Prénom</label>
+		<input name="name" type="text" class="border" placeholder="Dupont Olivia" required>
+	</div>
+	<div class="flex flex-col gap-2">
+		<label for="email">Email</label>
+		<input name="email" type="email" class="border" placeholder="olviadupont@gmail.com" required>
+	</div>
+	<div class="flex flex-col gap-2">
+		<label for="phone">Numéro de téléphone</label>
+		<input name="phone" type="tel" class="border" placeholder="0734567854" required>
+	</div>
+
+    <details open>
+        <summary>
+            Compétences et domaines d’intervention
+        </summary>
+
+        <label>1. Combien de temps pouvez-vous consacrer au bénévolat ?</label>
+            <textarea name="benevolat-spendtime" id="benevolat-spendtime" placeholder="Écrivez ici" required></textarea>
+
+        <label>2. Quand préférez-vous intervenir ?</label>
+            <div>
+                <input type="checkbox" name="intervention" id="intervention1" value="En semaine">
+                <label for="intervention1">En semaine</label>
+            </div>
+            <div>
+                <input type="checkbox" name="intervention" id="intervention2" value="Le week-end">
+                <label for="intervention2">Le week-end</label>
+            </div>
+            <div>
+                <input type="checkbox" name="intervention" id="intervention3" value="En journée">
+                <label for="intervention3">En journée</label>
+            </div>
+            <div>
+                <input type="checkbox" name="intervention" id="intervention4" value="En soirée">
+                <label for="intervention4">En soirée</label>
+            </div>
+
+        <label>3. Dans quels domaines pouvez-vous nous aider ?</label>
+            <div>
+                <input type="checkbox" name="domain" id="domain1" value="Soins / entretien des animaux">
+                <label for="domain1">Soins / entretien des animaux</label>
+            </div>
+            <div>
+                <input type="checkbox" name="domain" id="domain2" value="Balade de chiens">
+                <label for="domain2">Balade de chiens</label>
+            </div>
+            <div>
+                <input type="checkbox" name="domain" id="domain3" value="Éducation canine">
+                <label for="domain3">Éducation canine</label>
+            </div>
+            <div>
+                <input type="checkbox" name="domain" id="domain4" value="Aide administrative">
+                <label for="domain4">Aide administrative</label>
+            </div>
+            <div>
+                <input type="checkbox" name="domain" id="domain5" value="Communication / réseaux socia / graphisme">
+                <label for="domain5">Communication / réseaux sociaux / graphisme</label>
+            </div>
+            <div>
+                <input type="checkbox" name="domain" id="domain6" value="Organisation d’événements">
+                <label for="domain6">Organisation d’événements</label>
+            </div>
+            <div>
+                <input type="checkbox" name="domain" id="domain7" value="Recherche de fonds / mécénat / sponsoring">
+                <label for="domain7">Recherche de fonds / mécénat / sponsoring</label>
+            </div>
+            <div>
+                <input type="checkbox" name="domain" id="domain8" value="Autre">
+                <label for="domain8">Autre</label>
+            </div>
+    </details>
+
+    <details open>
+        <summary>
+            Motivation
+        </summary>
+
+        <label>Pourquoi souhaitez-vous devenir bénévole au refuge ?</label>
+            <textarea name="benevolat-reason" id="benevolat-reason" placeholder="Écrivez ici" required></textarea>
+    </details>
+
+    <button type="submit" class="flex gap-2 py-3 px-5 bg-blue text-darkBlue rounded-lg font-bold leading-[130%] cursor-pointer">
+        Envoyer ma demande
+        <img src="/svg/mail.svg" alt="">
+    </button>
+</form>

@@ -1,27 +1,46 @@
-<details>
-    <summary>
-        Cadre de vie et environnement 2
-    </summary>
-    <label for="majeur">Êtes-vous majeur ?</label>
-    <div>
-        <input type="radio" name="majeur">
-        <label for="majeur">Oui</label>
-    </div>
-    <div>
-        <input type="radio" name="majeur">
-        <label for="majeur">Non</label>
-    </div>
-    <label for="majeur">Êtes-vous majeur ?</label>
-    <div>
-        <input type="radio" name="logement">
-        <label for="majeur">Appartement</label>
-    </div>
-    <div>
-        <input type="radio" name="logement">
-        <label for="majeur">Maison avec jardin</label>
-    </div>
-    <div>
-        <input type="radio" name="logement">
-        <label for="majeur">Maison sans jardin</label>
-    </div>
-</details>
+<form id="parrainage-form" class="flex flex-col gap-4">
+    <h4>Informations générales</h4>
+	<div class="flex flex-col gap-2">
+		<label for="name">Nom Prénom</label>
+		<input name="name" type="text" class="border" placeholder="Dupont Olivia" required>
+	</div>
+	<div class="flex flex-col gap-2">
+		<label for="email">Email</label>
+		<input name="email" type="email" class="border" placeholder="olviadupont@gmail.com" required>
+	</div>
+	<div class="flex flex-col gap-2">
+		<label for="phone">Numéro de téléphone</label>
+		<input name="phone" type="tel" class="border" placeholder="0734567854" required>
+	</div>
+
+    <details open>
+        <summary>
+            Type de parrainage souhaité
+        </summary>
+
+        <label>Quel type de parrainage souhaitez-vous effectuer ?</label>
+            <div>
+                <input type="radio" name="support-type" id="support-type1" value="Parrainer un chien" required>
+                <label for="support-type1">Parrainer un chien</label>
+            </div>
+            <div>
+                <input type="radio" name="support-type" id="support-type2" value="Soutenir le refuge dans son ensemble">
+                <label for="support-type2">Soutenir le refuge dans son ensemble</label>
+            </div>
+
+        <label>Souhaitez-vous parrainer un chien en particulier ?</label>
+            <div>
+                <input type="radio" name="particular-support" id="particular-support1" value="Oui" required>
+                <label for="particular-support1">Oui</label>
+            </div>
+            <div>
+                <input type="radio" name="particular-support" id="particular-support2" value="Non, je laisse le refuge choisir un chien à parrainer pour moi.">
+                <label for="particular-support2">Non, je laisse le refuge choisir un chien à parrainer pour moi.</label>
+            </div>
+    </details>
+
+    <button type="submit" class="flex gap-2 py-3 px-5 bg-blue text-darkBlue rounded-lg font-bold leading-[130%] cursor-pointer">
+        Envoyer ma demande
+        <img src="/svg/mail.svg" alt="">
+    </button>
+</form>

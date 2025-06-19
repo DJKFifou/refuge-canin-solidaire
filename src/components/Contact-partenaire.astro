@@ -1,27 +1,28 @@
-<details>
-    <summary>
-        Cadre de vie et environnement 4
-    </summary>
-    <label for="majeur">Êtes-vous majeur ?</label>
-    <div>
-        <input type="radio" name="majeur">
-        <label for="majeur">Oui</label>
-    </div>
-    <div>
-        <input type="radio" name="majeur">
-        <label for="majeur">Non</label>
-    </div>
-    <label for="majeur">Êtes-vous majeur ?</label>
-    <div>
-        <input type="radio" name="logement">
-        <label for="majeur">Appartement</label>
-    </div>
-    <div>
-        <input type="radio" name="logement">
-        <label for="majeur">Maison avec jardin</label>
-    </div>
-    <div>
-        <input type="radio" name="logement">
-        <label for="majeur">Maison sans jardin</label>
-    </div>
-</details>
+<form id="partenariat-form" class="flex flex-col gap-4">
+    <h4>Informations générales</h4>
+	<div class="flex flex-col gap-2">
+		<label for="name">Nom Prénom</label>
+		<input name="name" type="text" class="border" placeholder="Dupont Olivia" required>
+	</div>
+	<div class="flex flex-col gap-2">
+		<label for="email">Email</label>
+		<input name="email" type="email" class="border" placeholder="olviadupont@gmail.com" required>
+	</div>
+	<div class="flex flex-col gap-2">
+		<label for="phone">Numéro de téléphone</label>
+		<input name="phone" type="tel" class="border" placeholder="0734567854" required>
+	</div>
+
+    <details open>
+        <summary>
+            Détails / propositions
+        </summary>
+
+        <label>1. Souhaitez-vous nous en dire plus sur votre structure ou votre idée de collaboration ?</label>
+            <textarea name="collaboration" id="collaboration" placeholder="Écrivez ici" required></textarea>
+
+    <button type="submit" class="flex gap-2 py-3 px-5 bg-blue text-darkBlue rounded-lg font-bold leading-[130%] cursor-pointer">
+        Envoyer ma demande
+        <img src="/svg/mail.svg" alt="">
+    </button>
+</form>
