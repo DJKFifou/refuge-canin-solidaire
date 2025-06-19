@@ -4,10 +4,16 @@ import ContactAdopter from '@/components/contact-adopter.astro';
 import ContactBenevole from '@/components/Contact-benevole.astro';
 import ContactPartenaire from '@/components/Contact-partenaire.astro';
 import Hero from '@/components/Hero.astro';
+
+const links = [
+  { type: 'secondary', href: 'tel:0600000000', label: '0600000000', icon:'phone' },
+  { type: 'secondary', href: 'mailto:refugecaninsolidaire@gmail.com', label: 'refugecaninsolidaire@gmail.com', icon:'mail' },
+  { type: 'secondary', href: '', label: '15 avenue Lafarge, Gironde, 33000', icon:'ping' }
+];
 ---
 
 <Layout>
-  <Hero />
+  <Hero page_type="contact" img_url="/images/hero-contact.jpg" title="Une question, une envie d’aider, un doute avant l’adoption ?" text="Écrivez-nous via ce formulaire : nous lisons chaque message avec attention, et vous orienterons au mieux selon votre besoin." links={links} />
   <div class="container mx-auto">
     <div class="max-w-5xl border border-thirdLightGrey rounded-lg mx-auto my-25 p-12 flex flex-col gap-12">
       <div class="flex flex-col gap-6">
