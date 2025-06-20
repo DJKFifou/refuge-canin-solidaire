@@ -8,7 +8,7 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url("./fonts/Barlow-Light.ttf") format("truetype");
+  src: url("/fonts/Barlow-Light.ttf") format("truetype");
 }
 
 @font-face {
@@ -16,7 +16,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("./fonts/Barlow-Regular.ttf") format("truetype");
+  src: url("/fonts/Barlow-Regular.ttf") format("truetype");
 }
 
 @font-face {
@@ -24,7 +24,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("./fonts/Barlow-Medium.ttf") format("truetype");
+  src: url("/fonts/Barlow-Medium.ttf") format("truetype");
 }
 
 @font-face {
@@ -32,7 +32,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("./fonts/Barlow-SemiBold.ttf") format("truetype");
+  src: url("/fonts/Barlow-SemiBold.ttf") format("truetype");
 }
 
 @font-face {
@@ -40,7 +40,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("./fonts/Barlow-Bold.ttf") format("truetype");
+  src: url("/fonts/Barlow-Bold.ttf") format("truetype");
 }
 
 @font-face {
@@ -48,7 +48,7 @@
   font-style: normal;
   font-weight: 900;
   font-display: swap;
-  src: url("./fonts/Barlow-Black.ttf") format("truetype");
+  src: url("/fonts/Barlow-Black.ttf") format("truetype");
 }
 
 @font-face {
@@ -56,7 +56,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("./fonts/HomemadeApple-Regular.ttf") format("truetype");
+  src: url("/fonts/HomemadeApple-Regular.ttf") format("truetype");
 }
 
 @font-face {
@@ -64,7 +64,7 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url("./fonts/SpaceGrotesk-VariableFont_wght.ttf ") format("truetype");
+  src: url("/fonts/SpaceGrotesk-VariableFont_wght.ttf ") format("truetype");
 }
 
 @theme {
