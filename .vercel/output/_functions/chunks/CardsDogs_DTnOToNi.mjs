@@ -1,6 +1,6 @@
 import { c as createComponent, a as createAstro, m as maybeRenderHead, r as renderComponent, F as Fragment, b as renderTemplate, d as addAttribute } from './astro/server_BlKAVYNG.mjs';
 import 'kleur/colors';
-import { u as urlFor } from './sanity_DGch26_2.mjs';
+import { u as urlFor } from './sanity_DobQbu2O.mjs';
 
 const $$Astro = createAstro();
 const $$CardsDogs = createComponent(($$result, $$props, $$slots) => {

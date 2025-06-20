@@ -1,9 +1,10 @@
-import { $ as $$Layout } from '../chunks/Layout_CQ-7gkKE.mjs';
-import { c as createComponent, m as maybeRenderHead, r as renderComponent, b as renderTemplate, a as createAstro, e as renderScript, d as addAttribute } from '../chunks/astro/server_BlKAVYNG.mjs';
+import { $ as $$Layout } from '../chunks/Layout_BzpR-Vtn.mjs';
+import { c as createComponent, m as maybeRenderHead, r as renderComponent, b as renderTemplate, e as renderScript, a as createAstro, d as addAttribute } from '../chunks/astro/server_BlKAVYNG.mjs';
 import 'kleur/colors';
-import { $ as $$Button, a as $$Accordion } from '../chunks/Button_BzvnPeUQ.mjs';
+import { $ as $$Button, a as $$Accordion } from '../chunks/Button_2Blm8CzA.mjs';
 import 'clsx';
 /* empty css                                 */
+import { $ as $$StepFromBottom } from '../chunks/StepFromBottom_DkfmkVHj.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$BlogSlider = createComponent(($$result, $$props, $$slots) => {
@@ -29,15 +30,19 @@ const $$Faq = createComponent(($$result, $$props, $$slots) => {
       content: "De nombreuses fa\xE7ons : en devenant b\xE9n\xE9vole, en faisant un don, en parrainant un chien, en relayant nos publications\u2026 Chaque geste compte."
     }
   ];
-  return renderTemplate`${maybeRenderHead()}<div class="relative bg-beige pb-24"> <img src="/svg/bg/wave-beige-top.svg" class="w-full absolute top-0"> <section class=" container mx-auto px-4 pt-72 flex justify-between gap-16"> <div class="space-y-5 z-10"> <h2 class="h2">Vous vous posez des questions ?</h2> <p>C’est normal, et c’est même bon signe. Voici les réponses aux interrogations les plus fréquentes.</p> ${renderComponent($$result, "Button", $$Button, { "src": "/ee", "text": "En savoir plus" })} </div> ${renderComponent($$result, "Accordion", $$Accordion, { "items": accordionData })} </section> </div>`;
+  return renderTemplate`${maybeRenderHead()}<div class="relative bg-beige pb-24"> <img src="/svg/bg/wave-blue-top.svg" class="w-full absolute top-0"> <section class=" container mx-auto px-4 pt-72 flex justify-between gap-16"> <div class="space-y-5 z-10"> <h2 class="h2">Vous vous posez des questions ?</h2> <p>C’est normal, et c’est même bon signe. Voici les réponses aux interrogations les plus fréquentes.</p> ${renderComponent($$result, "Button", $$Button, { "src": "/ee", "text": "En savoir plus" })} </div> ${renderComponent($$result, "Accordion", $$Accordion, { "items": accordionData })} </section> </div>`;
 }, "/home/eole/dev/refuge-canin-solidaire/src/components/faq.astro", void 0);
 
-const $$Astro$8 = createAstro();
+const $$GravityNumber = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${maybeRenderHead()}<div class="relative w-full min-h-screen overflow-hidden bg-red-600" data-astro-cid-rlckeq5i> <div class="gravity-section flex flex-col items-center justify-end w-full min-h-screen border border-white" style="aspect-ratio: 1.5;" data-astro-cid-rlckeq5i> <div class="flex w-full justify-center" style="margin-top: -2.6%;" data-astro-cid-rlckeq5i> <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;" data-astro-cid-rlckeq5i> <span class="font-bold text-xl text-gray-700" data-astro-cid-rlckeq5i>1</span> </div> <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;" data-astro-cid-rlckeq5i> <span class="font-bold text-xl text-gray-700" data-astro-cid-rlckeq5i>2</span> </div> <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;" data-astro-cid-rlckeq5i> <span class="font-bold text-xl text-gray-700" data-astro-cid-rlckeq5i>3</span> </div> </div> <div class="flex w-full justify-center" style="margin-top: -2.6%;" data-astro-cid-rlckeq5i> <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;" data-astro-cid-rlckeq5i> <span class="font-bold text-xl text-gray-700" data-astro-cid-rlckeq5i>4</span> </div> <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;" data-astro-cid-rlckeq5i> <span class="font-bold text-xl text-gray-700" data-astro-cid-rlckeq5i>5</span> </div> <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;" data-astro-cid-rlckeq5i> <span class="font-bold text-xl text-gray-700" data-astro-cid-rlckeq5i>6</span> </div> <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;" data-astro-cid-rlckeq5i> <span class="font-bold text-xl text-gray-700" data-astro-cid-rlckeq5i>7</span> </div> </div> <div class="flex w-full justify-center" style="margin-top: -2.6%;" data-astro-cid-rlckeq5i> <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;" data-astro-cid-rlckeq5i> <span class="font-bold text-xl text-gray-700" data-astro-cid-rlckeq5i>8</span> </div> <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;" data-astro-cid-rlckeq5i> <span class="font-bold text-xl text-gray-700" data-astro-cid-rlckeq5i>9</span> </div> <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;" data-astro-cid-rlckeq5i> <span class="font-bold text-xl text-gray-700" data-astro-cid-rlckeq5i>10</span> </div> <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;" data-astro-cid-rlckeq5i> <span class="font-bold text-xl text-gray-700" data-astro-cid-rlckeq5i>11</span> </div> <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;" data-astro-cid-rlckeq5i> <span class="font-bold text-xl text-gray-700" data-astro-cid-rlckeq5i>12</span> </div> </div> </div> </div>  ${renderScript($$result, "/home/eole/dev/refuge-canin-solidaire/src/components/GravityNumber.astro?astro&type=script&index=0&lang.ts")}`;
+}, "/home/eole/dev/refuge-canin-solidaire/src/components/GravityNumber.astro", void 0);
+
+const $$Astro$6 = createAstro();
 const $$HeadingDog = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$8, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$6, $$props, $$slots);
   Astro2.self = $$HeadingDog;
   const { img } = Astro2.props;
-  return renderTemplate`${maybeRenderHead()}<div class="relative h-screen flex justify-center items-center overflow-x no-scroll bg-blue" id="box"> <img src="/svg/bg/wave-blue-top.svg" class="absolute w-full -bottom-9"> <div class="absolute inset-0 z-0 pointer-events-none"> ${img.map((image, idx) => renderTemplate`<img${addAttribute(image.src, "src")}${addAttribute(`Dog image ${idx + 1}`, "alt")} class="dog-image absolute w-40 transition-all duration-300"${addAttribute(`top: ${image.top}; left: ${image.left}; transform: rotate(${image.rotate}) scale(${image.scale}); clip-path: inset(100% 0 0 0);`, "style")}${addAttribute(idx, "data-index")}>`)} </div> <!-- Contenu centré --> <div class="relative z-10 text-center space-y-9 max-w-5xl mx-auto"> <h1 class="h1">
+  return renderTemplate`${maybeRenderHead()}<div class="relative h-screen flex justify-center items-center overflow-x no-scroll bg-blue" id="box"> <img src="/svg/bg/wave-blue-top.svg" class="absolute w-full -bottom-9"> <div class="absolute inset-0 z-0 pointer-events-none"> ${img.map((image, idx) => renderTemplate`<img${addAttribute(image.src, "src")}${addAttribute(`Dog image ${idx + 1}`, "alt")} class="dog-image absolute w-40 transition-all duration-300"${addAttribute(`top: ${image.top}; left: ${image.left}; transform: rotate(${image.rotate}) scale(${image.scale}); clip-path: inset(100% 0 0 0);`, "style")}${addAttribute(idx, "data-index")}>`)} </div> <div class="relative z-10 text-center space-y-9 max-w-5xl mx-auto"> <h1 class="h1">
 Ils n'attendent qu'une seconde chance. Et si c'était <span class="font-variant">vous ?</span> </h1> <p class="max-w-2xl mx-auto">
 Un refuge, des rencontres, des histoires. Adopter un chien, c'est lui donner une seconde chance, et vivre la vôtre différemment.
 </p> ${renderComponent($$result, "Button", $$Button, { "src": "/dogs", "text": "Contactez-nous" })} </div> </div> ${renderScript($$result, "/home/eole/dev/refuge-canin-solidaire/src/components/HeadingDog.astro?astro&type=script&index=0&lang.ts")}`;
@@ -46,7 +51,7 @@ Un refuge, des rencontres, des histoires. Adopter un chien, c'est lui donner une
 const $$Instagram = createComponent(($$result, $$props, $$slots) => {
   const partnerCount = 4;
   const partners = Array.from({ length: partnerCount }, (_, i) => i + 1);
-  return renderTemplate`${maybeRenderHead()}<section class="container m-auto py-64 flex flex-col gap-9 justify-center items-center"> <div class="flex justify-between items-center w-full"> <div class="flex items-center"> <img src="img/logo-dog.png"> <a href="https://www.instagram.com/refuge_canin_solidaire/" target="_blank">@refuge_canin_solidaire</a> </div> ${renderComponent($$result, "Button", $$Button, { "src": "/", "text": "Nous suivre" })} </div> <div class="grid grid-cols-4 gap-12"> ${partners.map((num) => {
+  return renderTemplate`${maybeRenderHead()}<section class="container m-auto py-64 flex flex-col gap-9 justify-center items-center"> <div class="flex justify-between items-center w-full"> <div class="flex items-center"> <img src="img/logo-dog.png"> <a href="https://www.instagram.com/refuge_canin_solidaire/" target="_blank" class="font-bold">@refuge_canin_solidaire</a> </div> ${renderComponent($$result, "Button", $$Button, { "src": "/", "text": "Nous suivre" })} </div> <div class="grid grid-cols-4 gap-4"> ${partners.map((num) => {
     return renderTemplate`<img${addAttribute(`/img/instagram/instagram-${num}.png`, "src")}${addAttribute(`Instagram Post ${num}`, "alt")} class="w-full">`;
   })} </div> </section>`;
 }, "/home/eole/dev/refuge-canin-solidaire/src/components/Instagram.astro", void 0);
@@ -57,39 +62,21 @@ const $$Partners = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<section class="container m-auto py-64 flex flex-col gap-9 justify-center items-center" id="caca"> <h2 class="h2">Merci à celles et ceux qui rendent notre mission possible.</h2> <div class="flex flex-wrap justify-center items-center gap-12"> ${partners.map((num) => renderTemplate`<img${addAttribute(`/img/partners/partner-${num}.png`, "src")}${addAttribute(`Logo partenaire ${num}`, "alt")} class="max-h-36 object-contain">`)} </div> </section>`;
 }, "/home/eole/dev/refuge-canin-solidaire/src/components/Partners.astro", void 0);
 
-const $$Astro$7 = createAstro();
+const $$Astro$5 = createAstro();
 const $$CardShop = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$7, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$5, $$props, $$slots);
   Astro2.self = $$CardShop;
   const { srcImg, href, title, description, price } = Astro2.props;
   return renderTemplate`${maybeRenderHead()}<a${addAttribute(href, "href")} target="_blank" class="w-full bg-white rounded-2xl p-6 block shadow-md hover:shadow-lg transition"> <div class="relative w-full"> <img${addAttribute(srcImg, "src")} class="w-full h-80 object-cover rounded-2xl"${addAttribute(title, "alt")}> <span class="absolute top-1.5 left-1.5 p-2 bg-white rounded-2xl text-xs font-semibold">Achat via Hello Asso</span> </div> <div class="space-y-3.5 my-3.5 text-left"> <h3 class="h3">${title}</h3> <p>${description}</p> <div class="flex justify-between items-center"> <p class="text-blue_black font-bold text-2xl font-grotesk">${price}</p> <div> <img src="/svg/shopping-cart.svg" class="p-2 bg-blue rounded-sm" alt="Panier"> </div> </div> </div> </a>`;
 }, "/home/eole/dev/refuge-canin-solidaire/src/components/ui/CardShop.astro", void 0);
 
-const $$Astro$6 = createAstro();
+const $$Astro$4 = createAstro();
 const $$Shop = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$6, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$4, $$props, $$slots);
   Astro2.self = $$Shop;
   const { products } = Astro2.props;
-  return renderTemplate`${maybeRenderHead()}<section class="relative h-screen w-full flex flex-col gap-9 justify-center items-center bg-blue" id="shop-section"> <div class="container-grid space-y-6"> <div class="max-w-3xl text-center mx-auto space-y-3 mb-12"> <h2 class="h2">Un petit achat pour vous, un grand soutien pour eux.</h2> <p>Nos produits solidaires financent croquettes, soins et confort pour les chiens du refuge.</p> </div> <div class="grid grid-cols-3 gap-11 w-full text-center"> ${products.map((product) => renderTemplate`${renderComponent($$result, "CardShop", $$CardShop, { "srcImg": product.srcImg, "href": product.href, "title": product.title, "price": product.price, "description": product.description })}`)} </div> <div class="flex justify-center"> ${renderComponent($$result, "Button", $$Button, { "src": "/dogs", "text": "Voir la boutique" })} </div> </div> </section>`;
+  return renderTemplate`${maybeRenderHead()}<section class="relative w-full flex flex-col gap-9 justify-center items-center bg-blue" id="shop-section"> <div class="container-grid space-y-6"> <div class="max-w-3xl text-center mx-auto space-y-3 mb-12"> <h2 class="h2">Un petit achat pour vous, un grand soutien pour eux.</h2> <p>Nos produits solidaires financent croquettes, soins et confort pour les chiens du refuge.</p> </div> <div class="grid grid-cols-3 gap-11 w-full text-center"> ${products.map((product) => renderTemplate`${renderComponent($$result, "CardShop", $$CardShop, { "srcImg": product.srcImg, "href": product.href, "title": product.title, "price": product.price, "description": product.description })}`)} </div> <div class="flex justify-center"> ${renderComponent($$result, "Button", $$Button, { "src": "/dogs", "text": "Voir la boutique" })} </div> </div> </section>`;
 }, "/home/eole/dev/refuge-canin-solidaire/src/components/Shop.astro", void 0);
-
-const $$Astro$5 = createAstro();
-const $$CardStep = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$5, $$props, $$slots);
-  Astro2.self = $$CardStep;
-  const { title, description, objective, i = 0 } = Astro2.props;
-  return renderTemplate`${maybeRenderHead()}<div class="card-step w-full h-[35rem] bg-beige transform translate-y-[300%] space-y-5 p-5 rounded-2xl border border-gray-400"> <div class="flex justify-between items-center"> <div class="bg-green rounded-full p-2 text-blue_black w-10">${i + 1}</div> <p class="bg-white border rounded-2xl border-gray-200 p-3">jour 1</p> </div> <h3 class="h3">${title}</h3> <p>${description}</p> <img src="img/dogs/dog.webp" class="w-full h-36 object-cover"> <p class="bg-green p-3.5 text-blue_black">${objective}</p> </div>`;
-}, "/home/eole/dev/refuge-canin-solidaire/src/components/ui/CardStep.astro", void 0);
-
-const $$Astro$4 = createAstro();
-const $$StepFromBottom = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$4, $$props, $$slots);
-  Astro2.self = $$StepFromBottom;
-  const { steps } = Astro2.props;
-  return renderTemplate`${maybeRenderHead()}<section class="relative h-screen w-full flex justify-center items-center bg-blue" id="caca"> <img src="/svg/bg/wave-beige-top.svg" class="w-full absolute -top-16 rotate-180"> <h2 class="h2 text-center z-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-Avant chaque adoption, il y a un chemin parcouru.
-</h2> <div class="z-10 text-center w-full px-4 mx-auto"> <div class="flex justify-center " id="cards-container"> ${steps.map((step, i) => renderTemplate`<div class="relative"${addAttribute(`transform: translateX(${ -15 * i}px) rotate(${i % 2 === 0 ? -2 : 1.2}deg); z-index: ${100 - i};`, "style")}> ${renderComponent($$result, "CardStep", $$CardStep, { "title": step.title, "description": step.description, "objective": step.objective, "i": i })} </div>`)} </div> </div> </section> ${renderScript($$result, "/home/eole/dev/refuge-canin-solidaire/src/components/StepFromBottom.astro?astro&type=script&index=0&lang.ts")}`;
-}, "/home/eole/dev/refuge-canin-solidaire/src/components/StepFromBottom.astro", void 0);
 
 const $$Astro$3 = createAstro();
 const $$CardAdoptedDog = createComponent(($$result, $$props, $$slots) => {
@@ -238,27 +225,37 @@ const $$Index = createComponent(($$result, $$props, $$slots) => {
   ];
   const steps = [
     {
+      title: "Renseignements & prise de contact",
+      imgSrc: "/img/steps/step-1.png",
+      description: "Vous remplissez un formulaire simple pour nous parler de vous, de votre cadre de vie et de vos attentes.",
+      objective: "Objectif : mieux vous conna\xEEtre pour guider l\u2019adoption, et assurer un bon d\xE9part."
+    },
+    {
+      title: "Entretien t\xE9l\xE9phonique",
+      imgSrc: "/img/steps/step-2.png",
+      description: "Un membre de l\u2019\xE9quipe vous appelle pour discuter de votre projet d\u2019adoption, et commencer \xE0 identifier des profils compatibles.",
+      objective: "Un moment d\u2019\xE9coute pour faire connaissance, sans pression."
+    },
+    {
       title: "Rencontre au refuge",
-      description: "Premier contact entre le chien et sa future famille.",
-      objective: "Observer les affinit\xE9s et \xE9tablir un premier lien."
+      imgSrc: "/img/steps/step-3.png",
+      description: "Vous venez au refuge rencontrer le(s) chien(s) qui pourraient vous correspondre. C\u2019est un vrai temps d\u2019observation, d\u2019\xE9change.",
+      objective: "Parce qu\u2019un lien, \xE7a ne se d\xE9cide pas derri\xE8re un \xE9cran."
     },
     {
-      title: "Premi\xE8re promenade",
-      description: "Moment de d\xE9tente en dehors du refuge.",
-      objective: "V\xE9rifier la compatibilit\xE9 et le comportement \xE0 l\u2019ext\xE9rieur."
+      title: "Ateliers & accompagnement",
+      imgSrc: "/img/steps/step-4.png",
+      description: "Avant l\u2019adoption, vous participez \xE0 une session d\u2019information (ou un atelier) pour vous pr\xE9parer au quotidien avec votre futur chien : besoins, langage canin, int\xE9gration \xE0 la maison\u2026",
+      objective: "Un animal n\u2019est pas livr\xE9 avec un mode d\u2019emploi, mais nous, on vous accompagne."
     },
     {
-      title: "Week-end test",
-      description: "Le chien passe 2 jours dans sa future maison.",
-      objective: "S\u2019assurer que tout le monde est \xE0 l\u2019aise et confiant."
-    },
-    {
-      title: "Week-end test",
-      description: "Le chien passe 2 jours dans sa future maison.",
-      objective: "S\u2019assurer que tout le monde est \xE0 l\u2019aise et confiant."
+      title: "Finalisation de l\u2019adoption",
+      imgSrc: "/img/steps/step-5.png",
+      description: "Une fois les \xE9tapes franchies sereinement, l\u2019adoption peut \xEAtre officialis\xE9e.\u2028 Nous restons disponibles apr\xE8s, pour le suivi et le soutien post-adoption.",
+      objective: "C\u2019est la fin du processus, mais le d\xE9but d\u2019une belle histoire."
     }
   ];
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "HeadingDog", $$HeadingDog, { "img": imgDog })} ${renderComponent($$result2, "TextBall", $$TextBall, { "title": "Un lieu d'accueil et de pr\xE9vention, pour soigner les chiens, accompagner les humains, et construire des adoptions durables." })} ${renderComponent($$result2, "Value", $$Value, { "values": values })} ${renderComponent($$result2, "Swiper", $$Swiper, {})} ${renderComponent($$result2, "StepFromBottom", $$StepFromBottom, { "steps": steps })} ${renderComponent($$result2, "Shop", $$Shop, { "products": shopProducts })} ${renderComponent($$result2, "Faq", $$Faq, {})} ${renderComponent($$result2, "BlogSlider", $$BlogSlider, {})} ${renderComponent($$result2, "Partners", $$Partners, {})} ${renderComponent($$result2, "Instagram", $$Instagram, {})} ` })}`;
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "HeadingDog", $$HeadingDog, { "img": imgDog })} ${renderComponent($$result2, "TextBall", $$TextBall, { "title": "Un lieu d'accueil et de pr\xE9vention, pour soigner les chiens, accompagner les humains, et construire des adoptions durables." })} ${renderComponent($$result2, "GravityNumber", $$GravityNumber, {})} ${renderComponent($$result2, "Value", $$Value, { "values": values })} ${renderComponent($$result2, "Swiper", $$Swiper, {})} ${renderComponent($$result2, "StepFromBottom", $$StepFromBottom, { "steps": steps })} ${renderComponent($$result2, "Shop", $$Shop, { "products": shopProducts })} ${renderComponent($$result2, "Faq", $$Faq, {})} ${renderComponent($$result2, "BlogSlider", $$BlogSlider, {})} ${renderComponent($$result2, "Partners", $$Partners, {})} ${renderComponent($$result2, "Instagram", $$Instagram, {})} ` })}`;
 }, "/home/eole/dev/refuge-canin-solidaire/src/pages/index.astro", void 0);
 
 const $$file = "/home/eole/dev/refuge-canin-solidaire/src/pages/index.astro";

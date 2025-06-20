@@ -1,6 +1,7 @@
 ---
 import BlogSlider from "@/components/BlogSlider.astro";
 import Faq from "@/components/faq.astro";
+import GravityNumber from "@/components/GravityNumber.astro";
 import HeadingDog from "@/components/HeadingDog.astro";
 import Instagram from "@/components/Instagram.astro";
 import Partners from "@/components/Partners.astro";
@@ -119,29 +120,41 @@ const shopProducts = [
 ];
 const steps = [
 	{
+		title: "Renseignements & prise de contact",
+		imgSrc: "/img/steps/step-1.png",
+		description:
+			"Vous remplissez un formulaire simple pour nous parler de vous, de votre cadre de vie et de vos attentes.",
+		objective:
+			"Objectif : mieux vous connaître pour guider l’adoption, et assurer un bon départ.",
+	},
+	{
+		title: "Entretien téléphonique",
+		imgSrc: "/img/steps/step-2.png",
+		description:
+			"Un membre de l’équipe vous appelle pour discuter de votre projet d’adoption, et commencer à identifier des profils compatibles.",
+		objective: "Un moment d’écoute pour faire connaissance, sans pression.",
+	},
+	{
 		title: "Rencontre au refuge",
-		description: "Premier contact entre le chien et sa future famille.",
-		objective: "Observer les affinités et établir un premier lien.",
+		imgSrc: "/img/steps/step-3.png",
+		description:
+			"Vous venez au refuge rencontrer le(s) chien(s) qui pourraient vous correspondre. C’est un vrai temps d’observation, d’échange.",
+		objective: "Parce qu’un lien, ça ne se décide pas derrière un écran.",
 	},
 	{
-		title: "Première promenade",
-		description: "Moment de détente en dehors du refuge.",
-		objective: "Vérifier la compatibilité et le comportement à l’extérieur.",
+		title: "Ateliers & accompagnement",
+		imgSrc: "/img/steps/step-4.png",
+		description:
+			"Avant l’adoption, vous participez à une session d’information (ou un atelier) pour vous préparer au quotidien avec votre futur chien : besoins, langage canin, intégration à la maison…",
+		objective:
+			"Un animal n’est pas livré avec un mode d’emploi, mais nous, on vous accompagne.",
 	},
 	{
-		title: "Week-end test",
-		description: "Le chien passe 2 jours dans sa future maison.",
-		objective: "S’assurer que tout le monde est à l’aise et confiant.",
-	},
-	{
-		title: "Week-end test",
-		description: "Le chien passe 2 jours dans sa future maison.",
-		objective: "S’assurer que tout le monde est à l’aise et confiant.",
-	},
-	{
-		title: "Week-end test",
-		description: "Le chien passe 2 jours dans sa future maison.",
-		objective: "S’assurer que tout le monde est à l’aise et confiant.",
+		title: "Finalisation de l’adoption",
+		imgSrc: "/img/steps/step-5.png",
+		description:
+			"Une fois les étapes franchies sereinement, l’adoption peut être officialisée.  Nous restons disponibles après, pour le suivi et le soutien post-adoption.",
+		objective: "C’est la fin du processus, mais le début d’une belle histoire.",
 	},
 ];
 ---
@@ -149,6 +162,7 @@ const steps = [
 <Layout>
 	<HeadingDog img={imgDog} />
 	<TextBall title="Un lieu d'accueil et de prévention, pour soigner les chiens, accompagner les humains, et construire des adoptions durables."/>
+	<GravityNumber />
 	<Value values={values} />
 	<Swiper />
 	<StepFromBottom steps={steps} />

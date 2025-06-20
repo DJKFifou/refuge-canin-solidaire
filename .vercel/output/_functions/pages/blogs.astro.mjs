@@ -1,9 +1,9 @@
-import { $ as $$Layout } from '../chunks/Layout_CQ-7gkKE.mjs';
+import { $ as $$Layout } from '../chunks/Layout_BzpR-Vtn.mjs';
 import { c as createComponent, a as createAstro, m as maybeRenderHead, d as addAttribute, b as renderTemplate, r as renderComponent } from '../chunks/astro/server_BlKAVYNG.mjs';
 import 'kleur/colors';
 import 'clsx';
 import { f as formatDate } from '../chunks/index_Do7ExkXM.mjs';
-import { u as urlFor, b as getBlogs } from '../chunks/sanity_DGch26_2.mjs';
+import { u as urlFor, d as getBlogs } from '../chunks/sanity_DobQbu2O.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro = createAstro();
@@ -17,7 +17,7 @@ const $$Card = createComponent(($$result, $$props, $$slots) => {
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   const posts = await getBlogs();
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Blogs" }, { "default": async ($$result2) => renderTemplate` ${maybeRenderHead()}<section class="grid gap-6grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 py-8 max-w-7xl mx-auto
-  "> ${posts.length ? posts.map((post) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "title": "blogs", "data": post })}`) : renderTemplate`<h1>aucuns blogs disponible...</h1>`} </section> ` })}`;
+  "> ${posts.length ? posts.map((post) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "title": "blogs", "data": post })}`) : renderTemplate`<h1>aucun blog disponible...</h1>`} </section> ` })}`;
 }, "/home/eole/dev/refuge-canin-solidaire/src/pages/blogs/index.astro", void 0);
 
 const $$file = "/home/eole/dev/refuge-canin-solidaire/src/pages/blogs/index.astro";

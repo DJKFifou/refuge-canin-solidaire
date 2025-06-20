@@ -1,5 +1,5 @@
 ---
-import Button from "./ui/Button.astro";
+import Button from "@/components/ui/Button.astro";
 
 const partnerCount = 4;
 const partners = Array.from({ length: partnerCount }, (_, i) => i + 1);
@@ -9,12 +9,12 @@ const partners = Array.from({ length: partnerCount }, (_, i) => i + 1);
     <div class="flex justify-between items-center w-full">
         <div class="flex items-center">
             <img src="img/logo-dog.png">
-            <a href="https://www.instagram.com/refuge_canin_solidaire/" target="_blank" >@refuge_canin_solidaire</a>
+            <a href="https://www.instagram.com/refuge_canin_solidaire/" target="_blank" class="font-bold">@refuge_canin_solidaire</a>
         </div>
         <Button src="/" text="Nous suivre"/>
     </div>
   
-  <div class="grid grid-cols-4 gap-12">
+  <div class="grid grid-cols-4 gap-4">
     {partners.map((num) => {
       return (
         <img 

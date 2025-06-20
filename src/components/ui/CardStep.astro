@@ -2,19 +2,26 @@
 export interface StepProps {
 	title: string;
 	description: string;
+	imgSrc: string;
 	objective: string;
 	i?: number;
 }
 
-const { title, description, objective, i = 0 } = Astro.props as StepProps;
+const {
+	title,
+	description,
+	imgSrc,
+	objective,
+	i = 0,
+} = Astro.props as StepProps;
 ---
-<div class="card-step w-full h-[35rem] bg-beige transform translate-y-[300%] space-y-5 p-5 rounded-2xl border border-gray-400">
+<div class="card-step w-96 h-auto bg-beige transform translate-y-[300%] space-y-5 p-5 rounded-2xl border border-gray-400">
     <div class="flex justify-between items-center">
-        <div class="bg-green rounded-full p-2 text-blue_black w-10">{i+1}</div>
+        <div class="bg-green rounded-full p-2 text-blue_black w-10 h3">{i+1}</div>
         <p class="bg-white border rounded-2xl border-gray-200 p-3">jour 1</p>
     </div>
     <h3 class="h3">{title}</h3>
     <p>{description}</p>
-    <img src="img/dogs/dog.webp" class="w-full h-36 object-cover" />
+    <img src={imgSrc} class="w-full h-36 object-cover" />
     <p class="bg-green p-3.5 text-blue_black">{objective}</p>
 </div>

@@ -1,11 +1,11 @@
-import { $ as $$Layout } from '../../chunks/Layout_CQ-7gkKE.mjs';
+import { $ as $$Layout } from '../../chunks/Layout_BzpR-Vtn.mjs';
 import { c as createComponent, a as createAstro, m as maybeRenderHead, r as renderComponent, b as renderTemplate, d as addAttribute } from '../../chunks/astro/server_BlKAVYNG.mjs';
 import 'kleur/colors';
-import { c as getThreeDogs, d as getDog, u as urlFor } from '../../chunks/sanity_DGch26_2.mjs';
+import { e as getThreeDogs, f as getDog, u as urlFor } from '../../chunks/sanity_DobQbu2O.mjs';
 import { f as formatDate } from '../../chunks/index_Do7ExkXM.mjs';
 import { PortableText } from '@portabletext/react';
-import { $ as $$Button, a as $$Accordion } from '../../chunks/Button_BzvnPeUQ.mjs';
-import { $ as $$CardsDogs } from '../../chunks/CardsDogs_CdQ04XtT.mjs';
+import { $ as $$Button, a as $$Accordion } from '../../chunks/Button_2Blm8CzA.mjs';
+import { $ as $$CardsDogs } from '../../chunks/CardsDogs_DTnOToNi.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro$2 = createAstro();
@@ -35,7 +35,7 @@ const $$slugs = createComponent(async ($$result, $$props, $$slots) => {
     {
       title: "Mon Histoire",
       content: dog.historyDescription,
-      icon: "/svg/page-dog/heart.svg",
+      icon: "/svg/page-dog/edit-2.svg",
       type: "portableText"
     },
     {
@@ -52,19 +52,25 @@ const $$slugs = createComponent(async ($$result, $$props, $$slots) => {
     },
     {
       title: "Entretien & rythme",
+      content: dog.healthDescription,
+      icon: "/svg/page-dog/pocket.svg",
+      type: "portableText"
+    },
+    {
+      title: "Entretien & rythme",
       content: `
 		<div class="flex gap-2">
 			<span class="bg-grey px-3 py-1 rounded-full text-sm">
-				${dog.age}
+				${dog.age}ans
 			</span>
 			<span class="bg-grey px-3 py-1 rounded-full text-sm">
-				${dog.weight}
+				${dog.weight}kg
 			</span>
 			<span class="bg-grey px-3 py-1 rounded-full text-sm">
-				${dog.breed}
+				${dog.size}
 			</span>
 			<span class="bg-grey px-3 py-1 rounded-full text-sm">
-				${formatDate(dog.arrivalDate)}
+				Arriv\xE9 au refuge :${formatDate(dog.arrivalDate)}
 			</span>
 		</div>
 	`,
@@ -76,7 +82,7 @@ const $$slugs = createComponent(async ($$result, $$props, $$slots) => {
 Le chien que vous recherchez n'est pas disponible ou n'existe plus.
 </p><a href="/dogs" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">
 Retour à la liste des chiens
-</a></div>` })}` : renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": async ($$result2) => renderTemplate`<section class="container mx-auto flex py-28 gap-12"><div class="w-1/2">${dog.mainImage && renderTemplate`<img class="w-full h-full object-cover rounded-md"${addAttribute(urlFor(dog.mainImage).width(1e3).height(1e3).url(), "src")}${addAttribute(`${dog.name}`, "alt")} loading="lazy">`}</div><div class="bg-beige p-3.5 border rounded-sm border-[#B8B997]"><h2 class=" h2">moi c'est <span class="font-variant">${dog.name}</span></h2><div class="flex gap-3"><span class="bg-grey p-1 rounded-sm">${dog.gender}</span><span class="bg-grey p-1 rounded-sm">${dog.breed}</span><span class="bg-grey p-1 rounded-sm">${dog.gender}</span><span class="bg-grey p-1 rounded-sm">${dog.gender}</span></div>${renderComponent($$result2, "PortableText", PortableText, { "value": dog.historyDescription })}${renderComponent($$result2, "Accordion", $$Accordion, { "items": accordionData })}</div></section>${renderComponent($$result2, "TilteText", $$TilteText, { "title": "Bienvenue au Refuge", "description": "Un lieu d\u2019accueil pour soigner les chiens et accompagner les humains.", "buttons": [
+</a></div>` })}` : renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": async ($$result2) => renderTemplate`<section class="container mx-auto flex py-28 gap-12 relative"><div class="w-1/2">${dog.mainImage && renderTemplate`<img class="w-full h-full object-cover rounded-md"${addAttribute(urlFor(dog.mainImage).width(1e3).height(1e3).url(), "src")}${addAttribute(`${dog.name}`, "alt")} loading="lazy">`}</div><!-- Colonne texte --><div class="w-1/2 -ml-20 mt-20 z-10 bg-beige p-6 border rounded-sm border-[#B8B997] space-y-6 shadow-lg"><h2 class="h2">moi c'est <span class="font-variant">${dog.name}</span></h2><div class="flex gap-3"><span class="bg-grey p-1 rounded-sm">${dog.gender}</span><span class="bg-grey p-1 rounded-sm">${dog.breed}</span></div>${renderComponent($$result2, "PortableText", PortableText, { "value": dog.historyDescription })}${renderComponent($$result2, "Accordion", $$Accordion, { "className": "bg-transparent", "items": accordionData })}</div></section>${renderComponent($$result2, "TilteText", $$TilteText, { "title": "Bienvenue au Refuge", "description": "Un lieu d\u2019accueil pour soigner les chiens et accompagner les humains.", "buttons": [
     { src: "/contact", text: "Nous contacter" },
     { src: "/adoptions", text: "Voir les chiens" }
   ] })}${renderComponent($$result2, "ThreeDog", $$ThreeDog, { "title": "Bienvenue au Refuge", "btnLink": "/adopter", "btnText": "Voir tous les chiens" })}` })}`}`;

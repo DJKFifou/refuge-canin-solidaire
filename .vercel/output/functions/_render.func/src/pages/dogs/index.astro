@@ -1,30 +1,263 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getDogs } from "../../../sanity/utilis/sanity";
+import {
+	getDogsWithFilters,
+	getAvailableBreeds,
+	getAvailableGenders,
+} from "../../../sanity/utilis/sanity";
 import CardsDogs from "@/components//CardsDogs.astro";
+import StepFromBottom from "@/components/StepFromBottom.astro";
 
-const dogs = await getDogs();
+// Récupérer TOUS les chiens au lieu de les filtrer côté serveur
+const allDogs = await getDogsWithFilters({});
+const availableBreeds = await getAvailableBreeds();
+const availableGenders = await getAvailableGenders();
+
+const steps = [
+	{
+		title: "Renseignements & prise de contact",
+		imgSrc: "/img/steps/step-1.png",
+		description:
+			"Vous remplissez un formulaire simple pour nous parler de vous, de votre cadre de vie et de vos attentes.",
+		objective:
+			"Objectif : mieux vous connaître pour guider l'adoption, et assurer un bon départ.",
+	},
+	{
+		title: "Entretien téléphonique",
+		imgSrc: "/img/steps/step-2.png",
+		description:
+			"Un membre de l'équipe vous appelle pour discuter de votre projet d'adoption, et commencer à identifier des profils compatibles.",
+		objective: "Un moment d'écoute pour faire connaissance, sans pression.",
+	},
+	{
+		title: "Rencontre au refuge",
+		imgSrc: "/img/steps/step-3.png",
+		description:
+			"Vous venez au refuge rencontrer le(s) chien(s) qui pourraient vous correspondre. C'est un vrai temps d'observation, d'échange.",
+		objective: "Parce qu'un lien, ça ne se décide pas derrière un écran.",
+	},
+	{
+		title: "Ateliers & accompagnement",
+		imgSrc: "/img/steps/step-4.png",
+		description:
+			"Avant l'adoption, vous participez à une session d'information (ou un atelier) pour vous préparer au quotidien avec votre futur chien : besoins, langage canin, intégration à la maison…",
+		objective:
+			"Un animal n'est pas livré avec un mode d'emploi, mais nous, on vous accompagne.",
+	},
+	{
+		title: "Finalisation de l'adoption",
+		imgSrc: "/img/steps/step-5.png",
+		description:
+			"Une fois les étapes franchies sereinement, l'adoption peut être officialisée. Nous restons disponibles après, pour le suivi et le soutien post-adoption.",
+		objective: "C'est la fin du processus, mais le début d'une belle histoire.",
+	},
+];
 ---
 
-<Layout title="Welcome to Astro.">
-  <section class="container mx-auto">
-    {dogs.length > 0 ? (
-      <div class="">
-        <div class="mb-6">
-          <h2 class="h2">{dogs.length} chiens disponibles</h2>
-          <p class="mb-4">Voici les chiens actuellement présents au refuge.</p>
-        </div>
+<Layout title="Nos chiens - Refuge">
+	<div class='mt-16'>
+		<StepFromBottom steps={steps} />
+	</div>
+		
+	<section class="container mx-auto px-4 py-8">
+		<div class="mb-12 bg-white">			
+			<!-- Formulaire sans method="GET" pour éviter le refresh -->
+			<form id="filter-form" class="space-y-4">
+				<div class="flex justify-between items-end gap-6">
+					<div>
+						<label for="name" class="text-sm font-medium mb-2 hidden">
+							Nom du chien
+						</label>
+						<input 
+							type="text" 
+							id="name" 
+							name="name" 
+							placeholder="Nom du chien"
+							class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+						/>
+					</div>
+					<div class="flex gap-4">
+						<div>
+							<label for="gender" class="hidden text-sm font-medium mb-2">
+								Sexe
+							</label>
+							<select 
+								id="gender" 
+								name="gender" 
+								class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+							>
+								<option value="">Sexe</option>
+								{availableGenders.map((gender) => (
+									<option value={gender}>
+										{gender}
+									</option>
+								))}
+							</select>
+						</div>
+						<div>
+							<label for="breed" class="hidden text-sm font-medium mb-2">
+								Race
+							</label>
+							<select 
+								id="breed" 
+								name="breed" 
+								class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+							>
+								<option value="">Races</option>
+								{availableBreeds.map((breed) => (
+									<option value={breed}>
+										{breed}
+									</option>
+								))}
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="flex gap-3 pt-4">					
+					<button 
+						type="button"
+						id="reset-btn"
+						class="px-6 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors"
+					>
+						Réinitialiser
+					</button>
+				</div>
+			</form>
+		</div>
+		<div id="results-container">
+			<div class="mb-6">
+				<h2 id="results-title" class="text-2xl font-bold mb-2">
+					{allDogs.length} chien{allDogs.length > 1 ? 's' : ''} disponible{allDogs.length > 1 ? 's' : ''}
+				</h2>
+				<div id="active-filters" class="flex-wrap gap-2 mb-4 hidden">
+					<span class="text-sm font-medium">Filtres :</span>
+					<div id="filter-tags"></div>
+				</div>
+			</div>
+			
+			<div id="dogs-grid" class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+				{allDogs.map((dog) => (
+					<div class="dog-card" 
+						 data-name={dog.name?.toLowerCase() || ''} 
+						 data-gender={dog.gender || ''} 
+						 data-breed={dog.breed || ''}>
+						<CardsDogs data={dog} />
+					</div>
+				))}
+			</div>
 
-        <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 py-8">
-          {dogs.map((dog) => (
-            <CardsDogs data={dog} />
-          ))}
-        </div>
-      </div>
-    ) : (
-      <h1 class="text-xl font-semibold col-span-full text-center mt-8">
-        Aucun chien disponible...
-      </h1>
-    )}
-  </section>
+			<div id="no-results" class="text-center py-12 hidden">
+				<h2 class="text-xl font-semibold mb-4">
+					Aucun chien ne correspond à votre recherche
+				</h2>
+				<button 
+					id="show-all-btn"
+					class="inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+				>
+					Voir tous les chiens
+				</button>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const form = document.getElementById('filter-form');
+			const nameInput = document.getElementById('name');
+			const genderSelect = document.getElementById('gender');
+			const breedSelect = document.getElementById('breed');
+			const searchBtn = document.getElementById('search-btn');
+			const resetBtn = document.getElementById('reset-btn');
+			const dogsGrid = document.getElementById('dogs-grid');
+			const resultsTitle = document.getElementById('results-title');
+			const activeFilters = document.getElementById('active-filters');
+			const filterTags = document.getElementById('filter-tags');
+			const noResults = document.getElementById('no-results');
+			const showAllBtn = document.getElementById('show-all-btn');
+			
+			const allDogCards = document.querySelectorAll('.dog-card');
+
+			function filterDogs() {
+				const nameFilter = nameInput && (nameInput as HTMLInputElement).value ? (nameInput as HTMLInputElement).value.toLowerCase().trim() : '';
+				const genderFilter = (genderSelect as HTMLSelectElement)?.value || '';
+				const breedFilter = (breedSelect as HTMLSelectElement)?.value || '';
+				
+				let visibleCount = 0;
+				const hasFilters = nameFilter || genderFilter || breedFilter;
+
+				allDogCards.forEach(card => {
+					const dogName = (card as HTMLElement).dataset.name || '';
+					const dogGender = (card as HTMLElement).dataset.gender || '';
+					const dogBreed = (card as HTMLElement).dataset.breed || '';
+					
+					const matchesName = !nameFilter || dogName.includes(nameFilter);
+					const matchesGender = !genderFilter || dogGender === genderFilter;
+					const matchesBreed = !breedFilter || dogBreed === breedFilter;
+					
+					if (matchesName && matchesGender && matchesBreed) {
+						(card as HTMLElement).style.display = 'block';
+						visibleCount++;
+					} else {
+						(card as HTMLElement).style.display = 'none';
+					}
+				});
+
+				if (resultsTitle) {
+					resultsTitle.textContent = `${visibleCount} chien${visibleCount > 1 ? 's' : ''} ${hasFilters ? 'trouvé(s)' : 'disponible(s)'}`;
+				}
+
+				if (visibleCount === 0 && hasFilters) {
+					if (dogsGrid) dogsGrid.style.display = 'none';
+					if (noResults) noResults.classList.remove('hidden');
+				} else {
+					if (dogsGrid) dogsGrid.style.display = 'grid';
+					if (noResults) noResults.classList.add('hidden');
+				}
+				updateActiveFilters(nameFilter, genderFilter, breedFilter, hasFilters);
+			}
+
+			function updateActiveFilters(name: string, gender: string, breed: string, hasFilters: string) {
+				if (hasFilters) {
+					if (activeFilters) activeFilters.classList.remove('hidden');
+					if (filterTags) {
+						filterTags.innerHTML = '';
+						
+						if (name) {
+							filterTags.innerHTML += `<span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">${name}</span>`;
+						}
+						if (gender) {
+							filterTags.innerHTML += `<span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">${gender}</span>`;
+						}
+						if (breed) {
+							filterTags.innerHTML += `<span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">${breed}</span>`;
+						}
+					}
+				} else {
+					if (activeFilters) activeFilters.classList.add('hidden');
+				}
+			}
+
+			function resetFilters() {
+				if (nameInput) (nameInput as HTMLInputElement).value = '';
+				if (genderSelect) (genderSelect as HTMLSelectElement).value = '';
+				if (breedSelect) (breedSelect as HTMLSelectElement).value = '';
+				filterDogs();
+			}
+
+			if (searchBtn) searchBtn.addEventListener('click', filterDogs);
+			if (resetBtn) resetBtn.addEventListener('click', resetFilters);
+			if (showAllBtn) showAllBtn.addEventListener('click', resetFilters);
+
+			if (nameInput) nameInput.addEventListener('input', filterDogs);
+			if (genderSelect) genderSelect.addEventListener('change', filterDogs);
+			if (breedSelect) breedSelect.addEventListener('change', filterDogs);
+
+			if (form) {
+				form.addEventListener('submit', function(e) {
+					e.preventDefault();
+					filterDogs();
+				});
+			}
+		});
+	</script>
 </Layout>

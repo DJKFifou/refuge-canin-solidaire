@@ -30,7 +30,6 @@ const { img } = Astro.props;
     ))}
   </div>
 
-  <!-- Contenu centré -->
   <div class="relative z-10 text-center space-y-9 max-w-5xl mx-auto">
     <h1 class="h1">
       Ils n'attendent qu'une seconde chance. Et si c'était <span class="font-variant">vous ?</span>
@@ -96,12 +95,12 @@ const { img } = Astro.props;
         mouseY = (e.clientY - rect.top - rect.height / 2) / rect.height;
 
         dogImages.forEach((img, idx) => {
-          const parallaxFactor = (idx + 1) * 15;
+          const parallaxFactor = (idx + 1) * 60;
           
           gsap.to(img, {
             x: mouseX * parallaxFactor,
             y: mouseY * parallaxFactor,
-            duration: 0.6,
+            duration: 0.4,
             ease: "power2.out"
           });
         });

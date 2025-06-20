@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import { urlFor } from "../../../sanity/utilis/image";
 import { getDog } from "../../../sanity/utilis/sanity";
-import type { Dog } from "../../../sanity/utilis/sanity";
+
 import { formatDate } from "../../../sanity/utilis/index";
 import { PortableText } from "@portabletext/react";
 import Accordion from "@/components/ui/Accordion.astro";
@@ -16,7 +16,7 @@ const accordionData = [
 	{
 		title: "Mon Histoire",
 		content: dog.historyDescription,
-		icon: "/svg/page-dog/heart.svg",
+		icon: "/svg/page-dog/edit-2.svg",
 		type: "portableText",
 	},
 	{
@@ -33,19 +33,25 @@ const accordionData = [
 	},
 	{
 		title: "Entretien & rythme",
+		content: dog.healthDescription,
+		icon: "/svg/page-dog/pocket.svg",
+		type: "portableText",
+	},
+	{
+		title: "Entretien & rythme",
 		content: `
 		<div class="flex gap-2">
 			<span class="bg-grey px-3 py-1 rounded-full text-sm">
-				${dog.age}
+				${dog.age}ans
 			</span>
 			<span class="bg-grey px-3 py-1 rounded-full text-sm">
-				${dog.weight}
+				${dog.weight}kg
 			</span>
 			<span class="bg-grey px-3 py-1 rounded-full text-sm">
-				${dog.breed}
+				${dog.size}
 			</span>
 			<span class="bg-grey px-3 py-1 rounded-full text-sm">
-				${formatDate(dog.arrivalDate)}
+				Arrivé au refuge :${formatDate(dog.arrivalDate)}
 			</span>
 		</div>
 	`,
@@ -71,29 +77,30 @@ const accordionData = [
   </Layout>
 ) : (
 <Layout>
-  <section class="container mx-auto flex py-28 gap-12">
+  <section class="container mx-auto flex py-28 gap-12 relative">
     <div class="w-1/2">
-	  {dog.mainImage && (
-		<img
-		  class="w-full h-full object-cover rounded-md"
-		  src={urlFor(dog.mainImage).width(1000).height(1000).url()}
-		  alt={`${dog.name}`}
-		  loading="lazy"
-		/>
-	  )}
-  </div>
-  <div class="bg-beige p-3.5 border rounded-sm border-[#B8B997]">
-    <h2 class=" h2">moi c'est <span class="font-variant"> {dog.name}</span></h2>
-    <div class="flex gap-3">
-      <span class="bg-grey p-1 rounded-sm">{dog.gender}</span>
-      <span class="bg-grey p-1 rounded-sm">{dog.breed}</span>
-      <span class="bg-grey p-1 rounded-sm">{dog.gender}</span>
-      <span class="bg-grey p-1 rounded-sm">{dog.gender}</span>
+      {dog.mainImage && (
+        <img
+          class="w-full h-full object-cover rounded-md"
+          src={urlFor(dog.mainImage).width(1000).height(1000).url()}
+          alt={`${dog.name}`}
+          loading="lazy"
+        />
+      )}
     </div>
-	<PortableText value={dog.historyDescription} />
-	<Accordion items={accordionData as { title: string; content: any; type?: "portableText" | "text"; icon?: string }[]} />
-  </div>
+
+    <!-- Colonne texte -->
+    <div class="w-1/2 -ml-20 mt-20 z-10 bg-beige p-6 border rounded-sm border-[#B8B997] space-y-6 shadow-lg">
+      <h2 class="h2">moi c'est <span class="font-variant">{dog.name}</span></h2>
+      <div class="flex gap-3">
+        <span class="bg-grey p-1 rounded-sm">{dog.gender}</span>
+        <span class="bg-grey p-1 rounded-sm">{dog.breed}</span>
+      </div>
+      <PortableText value={dog.historyDescription} />
+      <Accordion className="bg-transparent" items={accordionData as { title: string; content: unknown; type?: "portableText" | "text"; icon?: string }[]} />
+    </div>
   </section>
+
   <TilteText 
     title="Bienvenue au Refuge"
     description="Un lieu d’accueil pour soigner les chiens et accompagner les humains."
@@ -102,13 +109,12 @@ const accordionData = [
       { src: "/adoptions", text: "Voir les chiens" },
     ]}
   />
-    <ThreeDog
-      title="Bienvenue au Refuge"
-      btnLink="/adopter"
-      btnText="Voir tous les chiens"
-    />
 
-
+  <ThreeDog
+    title="Bienvenue au Refuge"
+    btnLink="/adopter"
+    btnText="Voir tous les chiens"
+  />
 </Layout>
 
 )}

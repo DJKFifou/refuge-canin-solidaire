@@ -1,9 +1,9 @@
 ---
-// Accordion.astro
 import { PortableText } from "@portabletext/react";
 
 export interface Props {
 	firstOpen?: boolean;
+	className?: string;
 	items: Array<{
 		title: string;
 		content: string | unknown;
@@ -12,14 +12,15 @@ export interface Props {
 	}>;
 }
 
-const { firstOpen = false, items } = Astro.props;
+const { firstOpen = false, className = "", items } = Astro.props;
 ---
 
-<div class="w-full max-w-2xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+<div class={`w-full max-w-2xl mx-auto rounded-lg  overflow-hidden ${className}`}>
+
   {items.map((item, index) => (
     <div class="border-b border-gray-200 last:border-b-0">
-      <button 
-        class="accordion-header w-full px-6 py-4 text-left  focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-inset transition-colors duration-200 flex justify-between items-center"
+      <button
+        class="accordion-header w-full px-6 py-4 text-left focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-inset transition-colors duration-200 flex justify-between items-center"
         data-target={`accordion-${index}`}
         aria-expanded={index === 0 && firstOpen ? "true" : "false"}
       >
@@ -29,23 +30,24 @@ const { firstOpen = false, items } = Astro.props;
           )}
           <span class="text-lg font-semibold text-gray-800">{item.title}</span>
         </div>
-        <svg 
-          class="accordion-icon w-5 h-5 text-gray-500 transform transition-transform duration-500 ease-in-out" 
-          fill="none" 
-          stroke="currentColor" 
+        <svg
+          class="accordion-icon w-5 h-5 text-gray-500 transform transition-transform duration-500 ease-in-out"
+          fill="none"
+          stroke="currentColor"
           viewBox="0 0 24 24"
         >
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      <div 
+
+      <div
         class={`accordion-content overflow-hidden transition-all duration-700 ease-in-out ${index === 0 && firstOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
         id={`accordion-${index}`}
         style="transition-property: max-height, opacity, transform; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);"
       >
-        <div class="accordion-content-inner px-6 py-5 bg-white text-gray-700 leading-relaxed transform transition-transform duration-700 ease-out">
+        <div class={`accordion-content-inner px-6 py-5 bg-white text-gray-700 leading-relaxed transform transition-transform duration-700 ease-out ${className}`}>
           {item.type === "portableText" ? (
-            <PortableText value={item.content} />
+            <PortableText value={item.content as any} />
           ) : (
             <div set:html={item.content} />
           )}
@@ -54,6 +56,7 @@ const { firstOpen = false, items } = Astro.props;
     </div>
   ))}
 </div>
+
 
 <style>
   .accordion-header[aria-expanded="true"] .accordion-icon {
@@ -102,47 +105,54 @@ const { firstOpen = false, items } = Astro.props;
     const headers = document.querySelectorAll('.accordion-header');
     
     headers.forEach(header => {
-      header.addEventListener('click', function() {
+      header.addEventListener('click', function (this: HTMLButtonElement) {
         const target = this.getAttribute('data-target');
-        const content = document.getElementById(target);
+        const content = target ? document.getElementById(target) : null;
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
         
-        // Fermer tous les autres accordéons avec animation douce
         headers.forEach(otherHeader => {
           if (otherHeader !== this) {
             const otherTarget = otherHeader.getAttribute('data-target');
-            const otherContent = document.getElementById(otherTarget);
-            
-            if (otherHeader.getAttribute('aria-expanded') === 'true') {
-              otherHeader.setAttribute('aria-expanded', 'false');
-              otherContent.classList.remove('open', 'opening');
-              otherContent.classList.add('closing');
+            if (otherTarget) {
+              const otherContent = document.getElementById(otherTarget);
               
-              setTimeout(() => {
-                otherContent.classList.remove('closing');
-              }, 600);
+              if (otherHeader.getAttribute('aria-expanded') === 'true' && otherContent) {
+                otherHeader.setAttribute('aria-expanded', 'false');
+                otherContent.classList.remove('open', 'opening');
+                otherContent.classList.add('closing');
+                
+                setTimeout(() => {
+                  otherContent.classList.remove('closing');
+                }, 600);
+              }
             }
           }
         });
         
         if (isExpanded) {
           this.setAttribute('aria-expanded', 'false');
-          content.classList.remove('open', 'opening');
-          content.classList.add('closing');
+          if (content) {
+            content.classList.remove('open', 'opening');
+            content.classList.add('closing');
+          }
           
           setTimeout(() => {
-            content.classList.remove('closing');
+            if (content) {
+              content.classList.remove('closing');
+            }
           }, 600);
         } else {
           this.setAttribute('aria-expanded', 'true');
 
           setTimeout(() => {
-            content.classList.remove('closing');
-            content.classList.add('opening', 'open');
-            
-            setTimeout(() => {
-              content.classList.remove('opening');
-            }, 700);
+            if (content) {
+              content.classList.remove('closing');
+              content.classList.add('opening', 'open');
+              
+              setTimeout(() => {
+                content.classList.remove('opening');
+              }, 700);
+            }
           }, 50);
         }
       });

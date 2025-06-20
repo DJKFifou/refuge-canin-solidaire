@@ -1,7 +1,7 @@
-import { $ as $$Layout } from '../../chunks/Layout_CQ-7gkKE.mjs';
+import { $ as $$Layout } from '../../chunks/Layout_BzpR-Vtn.mjs';
 import { c as createComponent, a as createAstro, r as renderComponent, b as renderTemplate, m as maybeRenderHead, d as addAttribute } from '../../chunks/astro/server_BlKAVYNG.mjs';
 import 'kleur/colors';
-import { g as getBlog, u as urlFor } from '../../chunks/sanity_DGch26_2.mjs';
+import { g as getBlog, u as urlFor } from '../../chunks/sanity_DobQbu2O.mjs';
 import { f as formatDate } from '../../chunks/index_Do7ExkXM.mjs';
 export { renderers } from '../../renderers.mjs';
 
