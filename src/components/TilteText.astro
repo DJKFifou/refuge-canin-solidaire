@@ -4,6 +4,8 @@ import Button from "./ui/Button.astro";
 interface ButtonProps {
 	src: string;
 	text: string;
+  type?: 'primary' | 'secondary';
+  icon?: string;
 }
 
 interface Props {
@@ -26,7 +28,7 @@ const { title, description, buttons } = Astro.props;
     <p class="text-lg">{description}</p>
     <div class="flex flex-wrap justify-center gap-4">
       {buttons.map((btn) => (
-        <Button src={btn.src} text={btn.text} />
+        <Button src={btn.src} text={btn.text} icon={btn.icon} type={btn.type} />
       ))}
     </div>
   </div>

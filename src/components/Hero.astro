@@ -2,19 +2,19 @@
 const { page_type, img_url, title, line, text, links = [] } = Astro.props;
 ---
 
-<div class="relative h-[calc(100vh-100px)] bg-lightBlue">
+<div class=`relative ${page_type === "blog" ? 'h-[calc(100vh-300px)]' : 'h-[calc(100vh-100px)]'} bg-lightBlue`>
     {img_url && (
     <div class="h-full w-full rounded-2xl px-20 py-14">
         <img src={img_url} alt="Hero" class="h-full w-full object-cover rounded-2xl brightness-40" />
     </div>
     )}
-    <div class=`absolute ${page_type === "contact" ? 'top-2/5' : 'top-1/2'} left-1/2 -translate-1/2 flex flex-col gap-8 w-full items-center justify-center px-30 text-center`>
+    <div class=`absolute ${page_type === "contact" ? 'top-2/5' : 'top-1/2'} left-1/2 -translate-1/2 flex flex-col gap-8 w-full items-center justify-center px-50 text-center`>
         <div class="flex flex-col gap-6 text-white">
             {title && (
                 <h2 class="relative text-[60px] font-title font-black leading-[120%] -tracking-[1.2px]">
                     {title}
                     {line && (
-                        <img src="/svg/line.svg" alt="Ligne décorative" class="absolute top-full right-15" />
+                        <img src="/svg/line.svg" alt="Ligne décorative" class="absolute top-full right-25" />
                     )}
                 </h2>
             )}
