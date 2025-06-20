@@ -2,15 +2,19 @@
 import Card from "@/components/Card.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getBlogs } from "../../../sanity/utilis/sanity";
+import Hero from "@/components/Hero.astro";
 
 const posts = await getBlogs();
 ---
 
 <Layout title="Blogs">
-  <section class="grid gap-6grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 py-8 max-w-7xl mx-auto
-  ">
-    {posts.length ? posts.map((post) => 
-    <Card title="blogs" data={post} />)
-     : <h1 >aucun blog disponible...</h1>}
+  <Hero img_url="/images/hero-blog.jpg" title="Infos et conseils pour adopter, comprendre & aimer." line />
+  <section class="container mx-auto flex flex-col gap-18 mt-13 mb-35">
+    <h5 class="text-center text-xl font-medium leading-[130%]">Retrouvez ici l’ensemble de nos articles, toutes thématiques confondues.</h5>
+    <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+      {posts.length ? posts.map((post) => 
+      <Card title="blogs" data={post} />)
+      : <h1 >aucun blog disponible...</h1>}
+    </div>
   </section>
 </Layout>

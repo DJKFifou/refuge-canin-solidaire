@@ -16,29 +16,37 @@ const blog = await getBlog(slugs ?? null);
   </Layout>
 ) : (
   <Layout title={blog.title}>
-    <article class="max-w-3xl mx-auto px-4 py-12">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">{blog.title}</h1>
+    <article class="max-w-3xl mx-auto px-4 py-12 flex flex-col gap-5">
+
+      <div class="flex items-center gap-6">
+        <div class="px-4 py-2 bg-white rounded border border-thirdLightGrey">
+          <p class="text-xs font-bold leading-[130%] text-darkBlue">Coulisse du refuge</p>
+        </div>
+        <time 
+          datetime={blog.publishedAt}
+          class="font-medium leading-[130%] text-darkBlue"
+        >
+          {formatDate(blog.publishedAt)}
+        </time>
+      </div>
+
+      <div class="flex flex-col gap-16">
+        <h1 class="text-[60px] font-bold text-darkBlue -tracking-[1.2px]">{blog.title}</h1>
+        
+        {blog.image && (
+          <img 
+            src={urlFor(blog.image).width(800).height(400).url()} 
+            alt={blog.image.alt || blog.title}
+            class="w-full h-auto rounded-lg shadow-md mb-8"
+          />
+        )}
+        
+        {blog.subtitle && (
+          <h2 class="text-2xl font-bold leading-[130%] text-darkBlue">{blog.subtitle}</h2>
+        )}
+      </div>
       
-      {blog.subtitle && (
-        <h2 class="text-2xl font-medium text-gray-700 mb-6">{blog.subtitle}</h2>
-      )}
-      
-      {blog.image && (
-        <img 
-          src={urlFor(blog.image).width(800).height(400).url()} 
-          alt={blog.image.alt || blog.title}
-          class="w-full h-auto rounded-lg shadow-md mb-8"
-        />
-      )}
-      
-      <time 
-        datetime={blog.publishedAt}
-        class="block text-sm text-gray-500 mb-6"
-      >
-        {formatDate(blog.publishedAt)}
-      </time>
-      
-      <p class="text-lg leading-relaxed text-gray-800 whitespace-pre-line">
+      <p class="text-lg leading-relaxed text-darkBlue whitespace-pre-line">
         {blog.description}
       </p>
     </article>
