@@ -1,57 +1,60 @@
 ---
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 ---
 
-<div class="relative w-full min-h-screen overflow-hidden bg-red-600">
-  <div class="gravity-section flex flex-col items-center justify-end w-full min-h-screen border border-white" style="aspect-ratio: 1.5;">
-    
+<div class="relative w-fulloverflow-hidden bg-beige flex  flex-col justify-center items-center ">
+
+  <h2 class="h2 text-blue pt-24">On ne reste pas les bras croisés</h2>
+  <div class="gravity-section flex flex-col items-center justify-center w-full  border border-white" style="aspect-ratio: 1.5;">
     <div class="flex w-full justify-center" style="margin-top: -2.6%;">
-      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;">
-        <span class="font-bold text-xl text-gray-700">1</span>
+      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow bg-blue" style="width: 20%; aspect-ratio: 1; border: 1px solid #9ca3af;">
+        <div class="flex flex-col text-white justify-center items-center ">
+          <div class="font-bold h2"></div>
+          <p class="text-white"></p>
+        </div>
       </div>
-      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;">
-        <span class="font-bold text-xl text-gray-700">2</span>
+      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow bg-lightorange" style="width: 20%; aspect-ratio: 1; border: 1px solid #9ca3af;">
+        <div class="flex flex-col text-darkBlue justify-center items-center">
+          <div class="font-bold h2 text-gray-700">160</div>
+          <p class="text-gray-700">rendez-vous santé organisés</p>
+        </div>
       </div>
-      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;">
-        <span class="font-bold text-xl text-gray-700">3</span>
+      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow bg-green" style="width: 20%; aspect-ratio: 1; border: 1px solid #9ca3af;">
+        <div class="flex flex-col text-darkBlue justify-center items-center">
+          <div class="font-bold h2 text-gray-700">42</div>
+          <p class="text-gray-700">bénévoles engagés chaque mois</p>
+        </div>
       </div>
     </div>
 
     <div class="flex w-full justify-center" style="margin-top: -2.6%;">
-      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;">
-        <span class="font-bold text-xl text-gray-700">4</span>
+      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow bg-lightorange" style="width: 20%; aspect-ratio: 1; border: 1px solid #9ca3af;">
+        <div class="flex flex-col text-darkBlue justify-center items-center">
+          <div class="font-bold h2 text-gray-700">1200</div>
+          <p class="text-gray-700">kg de croquettes distribuées</p>
+        </div>
       </div>
-      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;">
-        <span class="font-bold text-xl text-gray-700">5</span>
+      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow bg-blue" style="width: 20%; aspect-ratio: 1; border: 1px solid #9ca3af;">
+        <div class="flex flex-col text-white justify-center items-center">
+          <div class="font-bold h2">🐾</div>
+        </div>
       </div>
-      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;">
-        <span class="font-bold text-xl text-gray-700">6</span>
+      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow bg-lightorange" style="width: 20%; aspect-ratio: 1; border: 1px solid #9ca3af;">
+        <div class="flex flex-col text-darkBlue justify-center items-center">
+          <div class="font-bold h2 text-gray-700">139</div>
+          <p class="text-gray-700">adoptions réussies</p>
+        </div>
       </div>
-      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;">
-        <span class="font-bold text-xl text-gray-700">7</span>
+      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow bg-green" style="width: 20%; aspect-ratio: 1; border: 1px solid #9ca3af;">
+        <div class="flex flex-col text-darkBlue justify-center items-center">
+          <div class="font-bold h2 text-gray-700">+24</div>
+          <p class="text-gray-700">Ateliers et formations organisés</p>
+        </div>
       </div>
     </div>
 
-    <div class="flex w-full justify-center" style="margin-top: -2.6%;">
-      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;">
-        <span class="font-bold text-xl text-gray-700">8</span>
-      </div>
-      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;">
-        <span class="font-bold text-xl text-gray-700">9</span>
-      </div>
-      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;">
-        <span class="font-bold text-xl text-gray-700">10</span>
-      </div>
-      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;">
-        <span class="font-bold text-xl text-gray-700">11</span>
-      </div>
-      <div class="gravity-item flex items-center justify-center rounded-full transition-shadow" style="width: 20%; aspect-ratio: 1; background-color: #fff; border: 1px solid #9ca3af;">
-        <span class="font-bold text-xl text-gray-700">12</span>
-      </div>
-    </div>
   </div>
 </div>
+
 
 <style>
   .gravity-item:hover {
@@ -92,7 +95,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
             trigger: row,
             start: "top 80%",
             toggleActions: "play none none none",
-            markers: true,
           },
         }
       );
