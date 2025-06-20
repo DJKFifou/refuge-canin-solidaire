@@ -3,14 +3,25 @@ interface Props {
 	src: string;
 	text: string;
 	class?: string;
+  type?: 'primary' | 'secondary';
+  icon?: string;
 }
 
-const { src, text, class: customClass } = Astro.props;
+const { src, text, class: customClass, type, icon } = Astro.props;
 ---
 
 <a
-  class={`rounded-xl border bg-white border-gray-400 p-4 ${customClass ?? ''}`}
+  class={`flex items-center gap-2 rounded-lg border text-darkBlue font-bold leading-[130%] px-5 py-3 w-fit ${type === "primary" ? "bg-lightBlue border-lightBlue" : type === "secondary" ? 'bg-white border-thirdLightGrey' : ''} ${customClass ?? ''}`}
   href={src}
 >
   {text}
+  {icon === 'heart' && (
+    <img src="/svg/contact-heart.svg" alt="Icône de cœur" />
+  )}
+  {icon === 'instagram' && (
+    <img src="/svg/insta.svg" alt="Instagram" />
+  )}
+  {icon === 'arrow' && (
+    <img src="/svg/arrow-right-dark.svg" alt="Flèche" />
+  )}
 </a>

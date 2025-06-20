@@ -5,13 +5,13 @@ const partnerCount = 4;
 const partners = Array.from({ length: partnerCount }, (_, i) => i + 1);
 ---
 
-<section class="container m-auto py-64 flex flex-col gap-9 justify-center items-center">
+<section class="container m-auto my-35 flex flex-col gap-9 justify-center items-center">
     <div class="flex justify-between items-center w-full">
-        <div class="flex items-center">
+        <div class="flex items-center gap-4">
             <img src="img/logo-dog.png">
             <a href="https://www.instagram.com/refuge_canin_solidaire/" target="_blank" class="font-bold">@refuge_canin_solidaire</a>
         </div>
-        <Button src="/" text="Nous suivre"/>
+        <Button src="/" type="primary" text="Nous suivre" icon="instagram" />
     </div>
   
   <div class="grid grid-cols-4 gap-4">

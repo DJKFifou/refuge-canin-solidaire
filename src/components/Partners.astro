@@ -1,10 +1,11 @@
 ---
+import Button from "./ui/Button.astro";
 const partnerCount = 7;
 const partners = Array.from({ length: partnerCount }, (_, i) => i + 1);
 ---
 
-<section class="container m-auto py-64 flex flex-col gap-9 justify-center items-center" id="caca">
-    <h2 class="h2">Merci à celles et ceux qui rendent notre mission possible.</h2>
+<section class="container m-auto my-35 flex flex-col gap-12 justify-center items-center" id="caca">
+  <h2 class="h2 text-center px-10">Merci à celles et ceux qui rendent notre mission possible.</h2>
   <div class="flex flex-wrap justify-center items-center gap-12">
     {partners.map((num) => (
       <img 
@@ -14,4 +15,5 @@ const partners = Array.from({ length: partnerCount }, (_, i) => i + 1);
       />
     ))}
   </div>
+  <Button src="/contact" type="secondary" text="Rejoignez-nous" icon="arrow" />
 </section>

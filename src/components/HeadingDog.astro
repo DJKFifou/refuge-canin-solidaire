@@ -30,14 +30,14 @@ const { img } = Astro.props;
     ))}
   </div>
 
-  <div class="relative z-10 text-center space-y-9 max-w-5xl mx-auto">
+  <div class="relative z-10 flex flex-col items-center text-center space-y-9 max-w-5xl mx-auto">
     <h1 class="h1">
       Ils n'attendent qu'une seconde chance. Et si c'était <span class="font-variant">vous ?</span>
     </h1>
     <p class="max-w-2xl mx-auto">
       Un refuge, des rencontres, des histoires. Adopter un chien, c'est lui donner une seconde chance, et vivre la vôtre différemment.
     </p>
-    <Button src="/dogs" text="Contactez-nous" />
+    <Button src="/dogs" type="secondary" text="Adopter" icon="heart" />
   </div>
 </div>
 
