@@ -1,0 +1,114 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { urlFor } from "../../../sanity/utilis/image";
+import { getDog } from "../../../sanity/utilis/sanity";
+import type { Dog } from "../../../sanity/utilis/sanity";
+import { formatDate } from "../../../sanity/utilis/index";
+import { PortableText } from "@portabletext/react";
+import Accordion from "@/components/ui/Accordion.astro";
+import TilteText from "@/components/TilteText.astro";
+import ThreeDog from "@/components/ThreeDog.astro";
+
+const { slugs } = Astro.params;
+const dog = await getDog(slugs ?? null);
+
+const accordionData = [
+	{
+		title: "Mon Histoire",
+		content: dog.historyDescription,
+		icon: "/svg/page-dog/heart.svg",
+		type: "portableText",
+	},
+	{
+		title: "Ce dont j’ai besoin",
+		content: dog.needsDescription,
+		icon: "/svg/page-dog/smile.svg",
+		type: "portableText",
+	},
+	{
+		title: "Mes affinités",
+		content: dog.affinitiesDescription,
+		icon: "/svg/page-dog/pocket.svg",
+		type: "portableText",
+	},
+	{
+		title: "Entretien & rythme",
+		content: `
+		<div class="flex gap-2">
+			<span class="bg-grey px-3 py-1 rounded-full text-sm">
+				${dog.age}
+			</span>
+			<span class="bg-grey px-3 py-1 rounded-full text-sm">
+				${dog.weight}
+			</span>
+			<span class="bg-grey px-3 py-1 rounded-full text-sm">
+				${dog.breed}
+			</span>
+			<span class="bg-grey px-3 py-1 rounded-full text-sm">
+				${formatDate(dog.arrivalDate)}
+			</span>
+		</div>
+	`,
+		icon: "/svg/page-dog/other.svg",
+		type: "text",
+	},
+];
+---
+{!dog ? (
+  <Layout>
+    <div class="container mx-auto px-4 py-12 text-center">
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">Chien introuvable</h1>
+      <p class="text-gray-600 mb-6">
+        Le chien que vous recherchez n'est pas disponible ou n'existe plus.
+      </p>
+      <a 
+        href="/dogs" 
+        class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors"
+      >
+        Retour à la liste des chiens
+      </a>
+    </div>
+  </Layout>
+) : (
+<Layout>
+  <section class="container mx-auto flex py-28 gap-12">
+    <div class="w-1/2">
+	  {dog.mainImage && (
+		<img
+		  class="w-full h-full object-cover rounded-md"
+		  src={urlFor(dog.mainImage).width(1000).height(1000).url()}
+		  alt={`${dog.name}`}
+		  loading="lazy"
+		/>
+	  )}
+  </div>
+  <div class="bg-beige p-3.5 border rounded-sm border-[#B8B997]">
+    <h2 class=" h2">moi c'est <span class="font-variant"> {dog.name}</span></h2>
+    <div class="flex gap-3">
+      <span class="bg-grey p-1 rounded-sm">{dog.gender}</span>
+      <span class="bg-grey p-1 rounded-sm">{dog.breed}</span>
+      <span class="bg-grey p-1 rounded-sm">{dog.gender}</span>
+      <span class="bg-grey p-1 rounded-sm">{dog.gender}</span>
+    </div>
+	<PortableText value={dog.historyDescription} />
+	<Accordion items={accordionData as { title: string; content: any; type?: "portableText" | "text"; icon?: string }[]} />
+  </div>
+  </section>
+  <TilteText 
+    title="Bienvenue au Refuge"
+    description="Un lieu d’accueil pour soigner les chiens et accompagner les humains."
+    buttons={[
+      { src: "/contact", text: "Nous contacter" },
+      { src: "/adoptions", text: "Voir les chiens" },
+    ]}
+  />
+    <ThreeDog
+      title="Bienvenue au Refuge"
+      btnLink="/adopter"
+      btnText="Voir tous les chiens"
+    />
+
+
+</Layout>
+
+)}

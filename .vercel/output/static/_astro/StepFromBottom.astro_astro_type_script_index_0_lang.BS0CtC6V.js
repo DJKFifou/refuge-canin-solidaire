@@ -1,0 +1,1 @@
+import{g as t,S as e}from"./ScrollTrigger.CUwdeFQJ.js";function o(){t.registerPlugin(e);const r=t.utils.toArray(".card-step");t.to(r,{opacity:1,y:0,duration:1,ease:"power2.out",stagger:.5,scrollTrigger:{trigger:"#caca",start:"top top",end:"+=1000",pin:!0,scrub:!0}})}document.addEventListener("DOMContentLoaded",o);
