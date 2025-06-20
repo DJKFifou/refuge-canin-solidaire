@@ -6,12 +6,13 @@ import type { Blog } from "../../sanity/utilis/sanity";
 interface Props {
 	title: string;
 	data: Blog;
+	className?: string;
 }
 
-const { data, title } = Astro.props;
+const { data, title, className } = Astro.props;
 ---
 
-<a href={`/${title}/${data.slug.current}`} class="flex flex-col gap-4 border border-gray-300 rounded-md overflow-hidden p-8 bg-lightBrown">
+<a href={`/${title}/${data.slug.current}`} class=`flex flex-col gap-4 border border-gray-300 rounded-md overflow-hidden p-8 bg-lightBrown ${className}`>
   {data?.image ? (
     <img
       class="w-full object-cover rounded-lg h-43"

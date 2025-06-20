@@ -16,14 +16,14 @@ interface Props {
 const { img } = Astro.props;
 ---
 
-<div class="relative h-screen flex justify-center items-center overflow-x no-scroll bg-blue" id="box">
+<div class="relative h-screen flex justify-center items-center overflow-x no-scroll bg-lightBlue" id="box">
     <img src="/svg/bg/wave-blue-top.svg" class="absolute w-full -bottom-9" >
   <div class="absolute inset-0 z-0 pointer-events-none">
     {img.map((image, idx) => (
       <img
         src={image.src}
         alt={`Dog image ${idx + 1}`}
-        class="dog-image absolute w-40 transition-all duration-300"
+        class="dog-image absolute w-40 transition-all duration-300 rounded-2xl"
         style={`top: ${image.top}; left: ${image.left}; transform: rotate(${image.rotate}) scale(${image.scale}); clip-path: inset(100% 0 0 0);`}
         data-index={idx}
       />

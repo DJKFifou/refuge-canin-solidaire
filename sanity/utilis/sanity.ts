@@ -62,19 +62,15 @@ export async function getDogsWithFilters(
 	let conditions = ['_type == "dog"', "defined(slug.current)"];
 	let params: any = {};
 
-	// Filtre par nom (recherche partielle, insensible à la casse)
 	if (filters.name && filters.name.trim()) {
 		conditions.push("name match $name");
 		params.name = `*${filters.name.trim()}*`;
 	}
 
-	// Filtre par sexe (correspondance exacte)
 	if (filters.gender && filters.gender.trim()) {
 		conditions.push("gender == $gender");
 		params.gender = filters.gender.trim();
 	}
-
-	// Filtre par race (recherche partielle, insensible à la casse)
 	if (filters.breed && filters.breed.trim()) {
 		conditions.push("breed match $breed");
 		params.breed = `*${filters.breed.trim()}*`;
@@ -85,19 +81,17 @@ export async function getDogsWithFilters(
 	return await sanityClient.fetch(query, params);
 }
 
-// Fonction pour obtenir toutes les races disponibles (optionnel, pour un select)
 export async function getAvailableBreeds(): Promise<string[]> {
-	const breeds = await sanityClient.fetch(
+	const breeds = (await sanityClient.fetch(
 		groq`*[_type == "dog" && defined(breed)] | order(breed asc).breed`,
-	);
+	)) as string[];
 	return [...new Set(breeds)].filter(Boolean);
 }
 
-// Fonction pour obtenir tous les sexes disponibles (optionnel)
 export async function getAvailableGenders(): Promise<string[]> {
-	const genders = await sanityClient.fetch(
+	const genders = (await sanityClient.fetch(
 		groq`*[_type == "dog" && defined(gender)] | order(gender asc).gender`,
-	);
+	)) as string[];
 	return [...new Set(genders)].filter(Boolean);
 }
 export interface Dog {

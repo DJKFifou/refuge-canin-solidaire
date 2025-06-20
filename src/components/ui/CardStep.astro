@@ -15,9 +15,9 @@ const {
 	i = 0,
 } = Astro.props as StepProps;
 ---
-<div class="card-step w-96 h-auto bg-beige transform translate-y-[300%] space-y-5 p-5 rounded-2xl border border-gray-400">
+<div class="card-step w-[450px]  bg-beige transform translate-y-[300%] space-y-5 p-10 rounded-2xl border border-gray-400 h-[600px]">
     <div class="flex justify-between items-center">
-        <div class="bg-green rounded-full p-2 text-blue_black w-10 h3">{i+1}</div>
+        <div class="bg-green rounded-full text-blue_black size-10 h3">{i+1}</div>
         <p class="bg-white border rounded-2xl border-gray-200 p-3">jour 1</p>
     </div>
     <h3 class="h3">{title}</h3>

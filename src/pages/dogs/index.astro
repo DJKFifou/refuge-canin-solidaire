@@ -7,8 +7,8 @@ import {
 } from "../../../sanity/utilis/sanity";
 import CardsDogs from "@/components//CardsDogs.astro";
 import StepFromBottom from "@/components/StepFromBottom.astro";
+import Hero from "@/components/Hero.astro";
 
-// Récupérer TOUS les chiens au lieu de les filtrer côté serveur
 const allDogs = await getDogsWithFilters({});
 const availableBreeds = await getAvailableBreeds();
 const availableGenders = await getAvailableGenders();
@@ -52,16 +52,27 @@ const steps = [
 		objective: "C'est la fin du processus, mais le début d'une belle histoire.",
 	},
 ];
+const links = [
+	{
+		type: "primary",
+		href: "/dogs",
+		label: "Je suis intéressé pour adopter",
+		icon: "arrow",
+	},
+];
 ---
 
 <Layout title="Nos chiens - Refuge">
+	 <Hero page_type="contact" img_url="/img/hero-dog.jpg" title="Un chien, ce n’est pas qu’un coup de cœur. C’est un compagnon de vie." links={links} />
 	<div class='mt-16'>
-		<StepFromBottom steps={steps} />
+		<StepFromBottom steps={steps} transparent/>
 	</div>
 		
 	<section class="container mx-auto px-4 py-8">
+		<h2 id="results-title" class="h2 mb-11">
+			{allDogs.length} chien{allDogs.length > 1 ? 's' : ''} à l'adoption{allDogs.length > 1 ? 's' : ''}
+		</h2>
 		<div class="mb-12 bg-white">			
-			<!-- Formulaire sans method="GET" pour éviter le refresh -->
 			<form id="filter-form" class="space-y-4">
 				<div class="flex justify-between items-end gap-6">
 					<div>
@@ -126,9 +137,6 @@ const steps = [
 		</div>
 		<div id="results-container">
 			<div class="mb-6">
-				<h2 id="results-title" class="text-2xl font-bold mb-2">
-					{allDogs.length} chien{allDogs.length > 1 ? 's' : ''} disponible{allDogs.length > 1 ? 's' : ''}
-				</h2>
 				<div id="active-filters" class="flex-wrap gap-2 mb-4 hidden">
 					<span class="text-sm font-medium">Filtres :</span>
 					<div id="filter-tags"></div>

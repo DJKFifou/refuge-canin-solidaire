@@ -9,8 +9,8 @@ interface Props {
 
 const { data } = Astro.props;
 ---
-<section>
-  <div class="group flex flex-col p-3 bg-beige border border-gray-300 rounded-md hover:shadow-md transition-shadow duration-200">
+<section class="">
+  <div class="group flex flex-col p-7 bg-beige border border-gray-300 rounded-md hover:shadow-md transition-shadow duration-200">
     
     <div class="relative w-full aspect-square">
       {data?.mainImage ? (
@@ -23,9 +23,10 @@ const { data } = Astro.props;
           />
           <a
             href={`/dogs/${data.slug.current}`}
-            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/15 text-white font-bold text-lg transition-opacity duration-300"
+            class="p-2.5 absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/15 text-black font-bold text-lg transition-opacity duration-300"
           >
-            Découvré {data.name}
+            <span class="p-4 bg-lightBlue rounded-lg">Découvrez {data.name}</span>
+            
           </a>
         </>
       ) : (
@@ -33,9 +34,9 @@ const { data } = Astro.props;
       )}
     </div>
 
-    <div class="p-4 flex flex-col flex-grow">
-      <h3 class="text-lg font-extrabold mb-2">
-        <span class="text-gray-900">moi c'est <span class="font-variant text-2xl">{data.name}</span></span>
+    <div class="flex flex-col flex-grow my-5">
+      <h3 class="text-lg mb-2">
+        <span class="text-gray-900">Moi c'est <span class="font-variant text-4xl pl-2">{data.name}</span></span>
       </h3>
       <p class="text-gray-600 mb-4 flex-grow">{data.shortDescription || "e"}</p>
     </div>

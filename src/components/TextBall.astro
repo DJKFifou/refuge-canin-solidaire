@@ -6,11 +6,11 @@ const { title } = Astro.props;
 ---
 
 <section id="boxBall" class="relative flex justify-center items-center h-screen overflow-hidden">
-  <h2 class="text-center z-10 max-w-4xl h2">{title}</h2>
+  <h2 class="text-center z-10 max-w-7xl h2">{title}</h2>
   <div>
     <img id="dog1" src="/svg/dogs/dog-1.svg" alt="illustration dog" class="absolute bottom-16 -left-12">
     <img id="dog2" src="/svg/dogs/dog-2.svg" alt="illustration dog" width="450" height="350" class="absolute bottom-0 -right-12">
-    <img id="ball" src="svg/ball.svg"  class="size-12 absolute bottom-16">
+    <img id="ball" src="svg/ball.svg"  class="size-16 absolute bottom-16">
   </div>
 </section>
 
@@ -58,7 +58,6 @@ window.addEventListener("load", () => {
     }
   });
 
-  // Dog2 renvoie la balle vers dog1
   ScrollTrigger.create({
     trigger: "#boxBall",
     start: "bottom center",

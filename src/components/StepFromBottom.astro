@@ -4,14 +4,19 @@ import CardStep from "./ui/CardStep.astro";
 
 interface Props {
 	steps: StepProps[];
+	transparent?: boolean;
 }
 
-const { steps } = Astro.props;
+const { steps, transparent } = Astro.props;
 ---
 
 
-<section class="relative h-screen w-full flex justify-center items-center bg-blue" id="caca">
-    <img src="/svg/bg/wave-blue-top.svg" class="w-full absolute -top-16 rotate-180">
+<section
+  class={`relative h-screen w-full flex justify-center items-center ${transparent ? '' : 'bg-lightBlue'}`}
+  id="caca">
+    {!transparent && (
+    <img src="/svg/bg/wave-blue-top.svg" class="w-full absolute -top-16 rotate-180" />
+  )}
   <h2
     class="h2 text-center z-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
     Avant chaque adoption, il y a un chemin parcouru.
@@ -20,13 +25,20 @@ const { steps } = Astro.props;
 
 <div class="z-10 text-center w-full px-4 mx-auto">
   <div
-    class="flex justify-center "
     id="cards-container"
+    class="relative flex justify-center" 
+    style="height: 400px;"
   >
     {steps.map((step, i) => (
       <div
-        class="relative"
-        style={`transform: translateX(${-15 * i}px) rotate(${i % 2 === 0 ? -2 : 1.2}deg); z-index: ${100 - i};`}
+        key={i}
+        class="absolute left-1/2"
+        style={`
+          top: 48%;
+          left:20%;
+          transform: translate(-40%, -60%) translateX(${280 * i}px) rotate(${i % 2 === 0 ? -2 : 1.2}deg);
+          z-index: ${100 + i};
+        `}
       >
         <CardStep 
           title={step.title}
@@ -39,6 +51,7 @@ const { steps } = Astro.props;
     ))}
   </div>
 </div>
+
 </div>
 
 

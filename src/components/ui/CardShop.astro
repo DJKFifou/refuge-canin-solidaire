@@ -10,9 +10,9 @@ export interface ShopProps {
 const { srcImg, href, title, description, price } = Astro.props as ShopProps;
 ---
 
-<a href={href} target='_blank' class="w-full bg-white rounded-2xl p-6 block shadow-md hover:shadow-lg transition">
+<a href={href} target='_blank' class="w-full bg-white rounded-lg p-6 block shadow-md hover:shadow-lg transition">
   <div class="relative w-full">
-    <img src={srcImg} class="w-full h-80 object-cover rounded-2xl" alt={title} />
+    <img src={srcImg} class="w-full h-80 object-cover rounded-lg" alt={title} />
     <span class="absolute top-1.5 left-1.5 p-2 bg-white rounded-2xl text-xs font-semibold">Achat via Hello Asso</span>
   </div>
   <div class="space-y-3.5 my-3.5 text-left">

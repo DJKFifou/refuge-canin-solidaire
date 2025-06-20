@@ -1,14 +1,65 @@
 ---
+import { getBlogs } from "./../../sanity/utilis/sanity";
 import Button from "./ui/Button.astro";
+import Card from "./Card.astro";
+
+const posts = await getBlogs();
 ---
 
 <div class="relative p-28 bg-beige z-10">
   <img src="/svg/dogs/big-dog.svg" class="absolute right-0 top-0 overflow-x-hidden -z-10">
-  <section class=" container mx-auto px-4 pt-72 flex justify-between gap-16">
-  <div class="space-y-5 z-10">
-    <h2 class="h2">Vous vous posez des questions ?</h2>
+    <div class="space-y-5 z-10">
+      <h2 class="h2">Vous vous posez des questions ?</h2>
+      <div class="flex justify-between items-start mb-8">
     <p>C’est normal, et c’est même bon signe. Voici les réponses aux interrogations les plus fréquentes.</p>
-    <Button src="/ee" type="secondary" text="En savoir plus" />
+    <div class="flex gap-2">
+      <button class="cursor-pointer transition-all swiper-button-prev rotate-180 w-12 h-12 border border-transparent hover:border-blue text-white bg-blue hover:bg-white rounded-xl flex items-center justify-center group">
+        <img src="/svg/arrow-right-dark.svg">
+      </button>
+      <button class="cursor-pointer transition-all swiper-button-next  w-12 h-12 border border-transparent hover:border-blue text-white bg-blue hover:bg-white rounded-xl flex items-center justify-center group">
+        <img src="/svg/arrow-right-dark.svg">
+      </button>
+    </div>
   </div>
+    <div class="swiper mb-12">
+    <div class="swiper-wrapper flex gap-14">
+      {posts.length ? posts.map((post) => 
+        <Card title="blogs" data={post} className="bg-white" />)
+        : <h1 >aucun blog disponible...</h1>
+      }
+    </div>
+  </div>
+    <Button src="/blogs" text="Voir blog" />
+  </div>
+  <section class=" container mx-auto px-4 pt-72 flex justify-between gap-16">
+
 </section>
 </div>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation } from 'swiper/modules';
+
+  const swiperConfig = {
+    modules: [Navigation],
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    slidesPerView: 3,
+    spaceBetween: 30,
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+    },
+  };
+
+  const swiper = new Swiper('.swiper', swiperConfig);
+</script>
