@@ -57,6 +57,12 @@
 
 
 <style>
+  .gravity-item {
+    opacity: 0;
+    visibility: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+
   .gravity-item:hover {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
@@ -79,12 +85,14 @@
         {
           y: "-200vh",
           x: 50,
-          opacity: 1,
+          opacity: 0,
+          visibility: "hidden",
         },
         {
           y: 0,
           x: 0,
           opacity: 1,
+          visibility: "visible",
           duration: 1.4,
           ease: "bounce.out",
           stagger: {
@@ -98,6 +106,7 @@
           },
         }
       );
+
     });
   });
 </script>
