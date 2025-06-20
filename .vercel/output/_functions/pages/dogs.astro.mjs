@@ -1,9 +1,9 @@
-import { $ as $$Layout } from '../chunks/Layout_BzpR-Vtn.mjs';
-import { c as createComponent, r as renderComponent, b as renderTemplate, m as maybeRenderHead, e as renderScript, d as addAttribute } from '../chunks/astro/server_BlKAVYNG.mjs';
+import { $ as $$Layout } from '../chunks/Layout_6yohoH12.mjs';
+import { c as createComponent, d as renderComponent, r as renderTemplate, m as maybeRenderHead, e as renderScript, b as addAttribute } from '../chunks/astro/server_CJ-8rX1v.mjs';
 import 'kleur/colors';
 import { a as getDogsWithFilters, b as getAvailableBreeds, c as getAvailableGenders } from '../chunks/sanity_DobQbu2O.mjs';
-import { $ as $$CardsDogs } from '../chunks/CardsDogs_DTnOToNi.mjs';
-import { $ as $$StepFromBottom } from '../chunks/StepFromBottom_DkfmkVHj.mjs';
+import { $ as $$CardsDogs } from '../chunks/CardsDogs_lCmAxlPG.mjs';
+import { $ as $$StepFromBottom } from '../chunks/StepFromBottom_8q9-vBSz.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
@@ -54,10 +54,10 @@ Réinitialiser
 Aucun chien ne correspond à votre recherche
 </h2> <button id="show-all-btn" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
 Voir tous les chiens
-</button> </div> </div> </section> ${renderScript($$result2, "/home/eole/dev/refuge-canin-solidaire/src/pages/dogs/index.astro?astro&type=script&index=0&lang.ts")} ` })}`;
-}, "/home/eole/dev/refuge-canin-solidaire/src/pages/dogs/index.astro", void 0);
+</button> </div> </div> </section> ${renderScript($$result2, "/Users/favoreat/Desktop/PROJETS/ECV/refuge-canin-solidaire/src/pages/dogs/index.astro?astro&type=script&index=0&lang.ts")} ` })}`;
+}, "/Users/favoreat/Desktop/PROJETS/ECV/refuge-canin-solidaire/src/pages/dogs/index.astro", void 0);
 
-const $$file = "/home/eole/dev/refuge-canin-solidaire/src/pages/dogs/index.astro";
+const $$file = "/Users/favoreat/Desktop/PROJETS/ECV/refuge-canin-solidaire/src/pages/dogs/index.astro";
 const $$url = "/dogs";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

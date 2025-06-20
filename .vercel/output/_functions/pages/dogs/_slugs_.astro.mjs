@@ -1,11 +1,11 @@
-import { $ as $$Layout } from '../../chunks/Layout_BzpR-Vtn.mjs';
-import { c as createComponent, a as createAstro, m as maybeRenderHead, r as renderComponent, b as renderTemplate, d as addAttribute } from '../../chunks/astro/server_BlKAVYNG.mjs';
+import { $ as $$Layout } from '../../chunks/Layout_6yohoH12.mjs';
+import { c as createComponent, a as createAstro, m as maybeRenderHead, d as renderComponent, r as renderTemplate, b as addAttribute } from '../../chunks/astro/server_CJ-8rX1v.mjs';
 import 'kleur/colors';
 import { e as getThreeDogs, f as getDog, u as urlFor } from '../../chunks/sanity_DobQbu2O.mjs';
 import { f as formatDate } from '../../chunks/index_Do7ExkXM.mjs';
 import { PortableText } from '@portabletext/react';
-import { $ as $$Button, a as $$Accordion } from '../../chunks/Button_2Blm8CzA.mjs';
-import { $ as $$CardsDogs } from '../../chunks/CardsDogs_DTnOToNi.mjs';
+import { $ as $$Button, a as $$Accordion } from '../../chunks/Button_BWy_f3x6.mjs';
+import { $ as $$CardsDogs } from '../../chunks/CardsDogs_lCmAxlPG.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro$2 = createAstro();
@@ -14,7 +14,7 @@ const $$TilteText = createComponent(($$result, $$props, $$slots) => {
   Astro2.self = $$TilteText;
   const { title, description, buttons } = Astro2.props;
   return renderTemplate`${maybeRenderHead()}<section class="relative flex justify-center items-center p-36 overflow-hidden"> <div class="-z-10"> <img src="/svg/dogs/dog-3.svg" class="absolute bottom-10 left-28"> <img src="/svg/dogs/dog-4.svg" class="absolute top-0 right-28"> </div> <div class="max-w-4xl text-center space-y-6"> <h2 class="z-10 h2">${title}</h2> <p class="text-lg">${description}</p> <div class="flex flex-wrap justify-center gap-4"> ${buttons.map((btn) => renderTemplate`${renderComponent($$result, "Button", $$Button, { "src": btn.src, "text": btn.text })}`)} </div> </div> </section>`;
-}, "/home/eole/dev/refuge-canin-solidaire/src/components/TilteText.astro", void 0);
+}, "/Users/favoreat/Desktop/PROJETS/ECV/refuge-canin-solidaire/src/components/TilteText.astro", void 0);
 
 const $$Astro$1 = createAstro();
 const $$ThreeDog = createComponent(async ($$result, $$props, $$slots) => {
@@ -23,7 +23,7 @@ const $$ThreeDog = createComponent(async ($$result, $$props, $$slots) => {
   const { title, btnLink, btnText } = Astro2.props;
   const dogs = await getThreeDogs();
   return renderTemplate`${maybeRenderHead()}<section class="container mx-auto py-36"> <div class="flex justify-between items-center"> <h2 class="h2">${title}</h2> ${renderComponent($$result, "Button", $$Button, { "src": btnLink, "text": btnText })} </div> <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 py-8"> ${dogs.map((dog) => renderTemplate`${renderComponent($$result, "CardsDogs", $$CardsDogs, { "data": dog })}`)} </div> </section>`;
-}, "/home/eole/dev/refuge-canin-solidaire/src/components/ThreeDog.astro", void 0);
+}, "/Users/favoreat/Desktop/PROJETS/ECV/refuge-canin-solidaire/src/components/ThreeDog.astro", void 0);
 
 const $$Astro = createAstro();
 const $$slugs = createComponent(async ($$result, $$props, $$slots) => {
@@ -86,9 +86,9 @@ Retour à la liste des chiens
     { src: "/contact", text: "Nous contacter" },
     { src: "/adoptions", text: "Voir les chiens" }
   ] })}${renderComponent($$result2, "ThreeDog", $$ThreeDog, { "title": "Bienvenue au Refuge", "btnLink": "/adopter", "btnText": "Voir tous les chiens" })}` })}`}`;
-}, "/home/eole/dev/refuge-canin-solidaire/src/pages/dogs/[slugs].astro", void 0);
+}, "/Users/favoreat/Desktop/PROJETS/ECV/refuge-canin-solidaire/src/pages/dogs/[slugs].astro", void 0);
 
-const $$file = "/home/eole/dev/refuge-canin-solidaire/src/pages/dogs/[slugs].astro";
+const $$file = "/Users/favoreat/Desktop/PROJETS/ECV/refuge-canin-solidaire/src/pages/dogs/[slugs].astro";
 const $$url = "/dogs/[slugs]";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

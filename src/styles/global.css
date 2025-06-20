@@ -74,9 +74,9 @@
 
   --color-white: #fff;
   --color-black: #000;
-  --color-beige: #F8F5F1;
+  --color-beige: #f8f5f1;
   --color-lightBlack: #252525;
-  --color-grey: #E9E8E8;
+  --color-grey: #e9e8e8;
   --color-lightGrey: #8f8f8f;
   --color-secondLightGrey: #ababab;
   --color-thirdLightGrey: #d6d6d6;
@@ -85,7 +85,7 @@
   --color-darkBlue: #173b4f;
   --color-green: #f2f3d3;
   --color-orange: #ff8547;
-  --color-lightorange: #FFC9AD;
+  --color-lightorange: #ffc9ad;
   --color-brown: #6d3c21;
   --color-lightBrown: #f8f5f1;
   --color-gold: #cdb596;
@@ -107,7 +107,7 @@
 html {
   scroll-behavior: smooth;
 }
-body{
+body {
   overflow-x: hidden;
 }
 
@@ -138,27 +138,27 @@ body{
   transform: scale3d(1, 1, 1);
 }
 .h1 {
-  font-family:var(--font-title);
-font-size: 72px;
-font-style: normal;
-font-weight: 900;
-line-height: 120%;
-letter-spacing: -1.2px;
+  font-family: var(--font-title);
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 120%;
+  letter-spacing: -1.2px;
   color: var(--color-blue_black);
 }
 .h2 {
-  font-family:var(--font-title);
-font-size: 60px;
-font-style: normal;
-font-weight: 900;
-line-height: 120%;
-letter-spacing: -1.2px;
+  font-family: var(--font-title);
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 120%;
+  letter-spacing: -1.2px;
   color: var(--color-blue_black);
 }
 .h3 {
-  font-family:var(--font-title);
+  font-family: var(--font-title);
   font-size: 1.5rem;
-  font-weight:900;
+  font-weight: 900;
 }
 .container-grid {
   max-width: 1250px;
